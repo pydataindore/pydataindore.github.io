@@ -16,7 +16,7 @@
     <nav class="nav">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
-                <img src="Assets/images/pydata_banner_logo.jpeg" alt="PyData Indore" class="logo-image">
+                <img src="Assets/images/pydata_logo.png" alt="PyData Indore" class="logo-image">
                 <span class="logo-text">
                     <span class="logo-py">Py</span><span class="logo-data">Data</span>
                     <span class="logo-city">Indore</span>
@@ -85,7 +85,15 @@
                         <a href="mailto:pydataindore@gmail.com" style="color: var(--color-primary-light);">pydataindore@gmail.com</a> 
                         or use the form below.
                     </p>
-                    <form action="#" method="POST">
+                    <form id="contactForm" action="https://formspree.io/f/xnjqpyko" method="POST">
+                        <!-- Formspree will send emails to pydataindore@gmail.com -->
+                        <input type="hidden" name="_to" value="pydataindore@gmail.com">
+                        <input type="hidden" name="_subject" value="New Contact Form Submission - PyData Indore">
+                        <input type="hidden" name="_replyto" value="" id="replyTo">
+                        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                        
+                        <div id="formMessage" class="form-message" style="display: none;"></div>
+                        
                         <div class="form-group">
                             <label for="name">Your Name *</label>
                             <input type="text" id="name" name="name" required placeholder="Enter your full name">
@@ -111,9 +119,9 @@
                             <label for="message">Message *</label>
                             <textarea id="message" name="message" required placeholder="Tell us how we can help..."></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-large">
-                            Send Message
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <button type="submit" class="btn btn-primary btn-large" id="submitBtn">
+                            <span id="submitText">Send Message</span>
+                            <svg id="submitIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
                             </svg>
                         </button>

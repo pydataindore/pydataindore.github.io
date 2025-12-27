@@ -116,56 +116,130 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Form validation (for contact page)
-    const contactForm = document.querySelector('.contact-form form');
+    // Contact Form Handling
+    const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        const formMessage = document.getElementById('formMessage');
+        const submitBtn = document.getElementById('submitBtn');
+        const submitText = document.getElementById('submitText');
+        const submitIcon = document.getElementById('submitIcon');
+        const emailInput = document.getElementById('email');
+        const replyToInput = document.getElementById('replyTo');
+        
+        // Update reply-to field when email changes
+        if (emailInput && replyToInput) {
+            emailInput.addEventListener('input', () => {
+                replyToInput.value = emailInput.value;
+            });
+        }
+        
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            
+            // Remove previous messages
+            formMessage.style.display = 'none';
+            formMessage.className = 'form-message';
+            
+            // Clear previous error styles
+            contactForm.querySelectorAll('.form-group input, .form-group textarea, .form-group select').forEach(input => {
+                input.style.borderColor = '';
+                input.classList.remove('error');
+            });
             
             // Basic validation
             const formData = new FormData(contactForm);
             let isValid = true;
+            const firstInvalid = [];
             
-            formData.forEach((value, key) => {
-                const input = contactForm.querySelector(`[name="${key}"]`);
-                if (input.hasAttribute('required') && !value.trim()) {
+            contactForm.querySelectorAll('[required]').forEach(input => {
+                const value = input.value.trim();
+                if (!value) {
                     isValid = false;
                     input.style.borderColor = '#ef4444';
+                    input.classList.add('error');
+                    if (firstInvalid.length === 0) {
+                        firstInvalid.push(input);
+                    }
                 } else {
                     input.style.borderColor = '';
+                    input.classList.remove('error');
                 }
             });
             
-            if (isValid) {
-                // Show success message (in production, this would submit to a backend)
-                const successMsg = document.createElement('div');
-                successMsg.className = 'form-success';
-                successMsg.innerHTML = `
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                        <polyline points="22 4 12 14.01 9 11.01"/>
-                    </svg>
-                    <span>Thank you! We'll be in touch soon.</span>
-                `;
-                successMsg.style.cssText = `
-                    display: flex;
-                    align-items: center;
-                    gap: 12px;
-                    padding: 16px 24px;
-                    background: rgba(13, 148, 136, 0.2);
-                    border: 1px solid rgba(13, 148, 136, 0.4);
-                    border-radius: 8px;
-                    color: #14b8a6;
-                    margin-top: 16px;
-                `;
-                contactForm.appendChild(successMsg);
-                contactForm.reset();
+            // Email validation
+            const email = emailInput.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email && !emailRegex.test(email)) {
+                isValid = false;
+                emailInput.style.borderColor = '#ef4444';
+                showMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            if (!isValid) {
+                showMessage('Please fill in all required fields.', 'error');
+                if (firstInvalid[0]) {
+                    firstInvalid[0].focus();
+                }
+                return;
+            }
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitText.textContent = 'Sending...';
+            submitIcon.style.display = 'none';
+            
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
                 
-                setTimeout(() => {
-                    successMsg.remove();
-                }, 5000);
+                if (response.ok) {
+                    showMessage('Thank you! Your message has been sent. We\'ll get back to you soon.', 'success');
+                    contactForm.reset();
+                    // Clear all validation errors after successful submission
+                    contactForm.querySelectorAll('.form-group input, .form-group textarea, .form-group select').forEach(input => {
+                        input.style.borderColor = '';
+                        input.classList.remove('error');
+                    });
+                } else {
+                    const data = await response.json();
+                    if (data.errors) {
+                        showMessage('There was an error submitting the form. Please try again or email us directly at pydataindore@gmail.com', 'error');
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                showMessage('Unable to send message. Please email us directly at pydataindore@gmail.com or try again later.', 'error');
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                submitText.textContent = 'Send Message';
+                submitIcon.style.display = 'block';
             }
         });
+        
+        function showMessage(text, type) {
+            formMessage.textContent = text;
+            formMessage.className = `form-message form-message-${type}`;
+            formMessage.style.display = 'flex';
+            
+            // Scroll to message
+            formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            // Auto-hide success messages after 5 seconds
+            if (type === 'success') {
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            }
+        }
     }
     
     // Add staggered animation delays to grid items

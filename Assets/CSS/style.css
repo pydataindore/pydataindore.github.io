@@ -164,14 +164,21 @@ a {
 }
 
 .logo-image {
-    height: 40px;
+    height: 45px;
     width: auto;
+    max-width: 200px;
     object-fit: contain;
     transition: transform var(--transition-fast);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    filter: brightness(1.1) contrast(1.1);
+    -webkit-filter: brightness(1.1) contrast(1.1);
 }
 
 .logo-image:hover {
     transform: scale(1.05);
+    filter: brightness(1.15) contrast(1.15);
+    -webkit-filter: brightness(1.15) contrast(1.15);
 }
 
 .logo-text {
@@ -273,15 +280,50 @@ a {
     position: absolute;
     inset: 0;
     z-index: 0;
+    overflow: hidden;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    filter: brightness(0.7) contrast(1.1);
+    animation: heroImageZoom 30s ease-in-out infinite alternate;
+}
+
+@keyframes heroImageZoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: 
+        /* Dark overlay from top and bottom for text readability */
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.6) 0%, transparent 30%, transparent 70%, rgba(15, 23, 42, 0.7) 100%),
+        /* Subtle darkening overall */
+        linear-gradient(135deg, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 0.5) 100%);
+    z-index: 1;
 }
 
 .hero-gradient {
     position: absolute;
     inset: 0;
     background: 
-        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(6, 182, 212, 0.4), transparent),
-        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(249, 115, 22, 0.2), transparent),
-        radial-gradient(ellipse 50% 30% at 20% 80%, rgba(6, 182, 212, 0.3), transparent);
+        /* Subtle color accents that don't overpower the image */
+        radial-gradient(ellipse 100% 60% at 50% 20%, rgba(6, 182, 212, 0.15), transparent),
+        radial-gradient(ellipse 80% 50% at 80% 70%, rgba(249, 115, 22, 0.1), transparent),
+        radial-gradient(ellipse 60% 40% at 20% 80%, rgba(6, 182, 212, 0.12), transparent);
+    z-index: 2;
+    mix-blend-mode: soft-light;
 }
 
 .hero-grid {
@@ -360,7 +402,7 @@ a {
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 3;
     text-align: center;
     max-width: 900px;
     padding: 0 var(--space-xl);
@@ -370,16 +412,22 @@ a {
     display: inline-flex;
     align-items: center;
     gap: var(--space-sm);
-    background: rgba(6, 182, 212, 0.15);
-    border: 1px solid rgba(6, 182, 212, 0.4);
+    background: rgba(6, 182, 212, 0.25);
+    border: 1px solid rgba(6, 182, 212, 0.6);
     padding: var(--space-sm) var(--space-lg);
     border-radius: var(--radius-full);
     font-size: 0.875rem;
     color: var(--color-primary-light);
     margin-bottom: var(--space-xl);
     animation: fadeInUp 0.8s ease-out;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(6, 182, 212, 0.3);
+    position: relative;
+    z-index: 1;
+    font-weight: 500;
 }
 
 .badge-dot {
@@ -407,6 +455,13 @@ a {
     line-height: 1.1;
     margin-bottom: var(--space-xl);
     animation: fadeInUp 0.8s ease-out 0.1s both;
+    text-shadow: 
+        0 4px 30px rgba(0, 0, 0, 0.9),
+        0 8px 60px rgba(0, 0, 0, 0.7),
+        0 0 80px rgba(15, 23, 42, 0.6),
+        0 2px 4px rgba(0, 0, 0, 0.8);
+    position: relative;
+    z-index: 1;
 }
 
 .title-line {
@@ -418,14 +473,38 @@ a {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    filter: drop-shadow(0 4px 20px rgba(6, 182, 212, 0.7)) drop-shadow(0 2px 10px rgba(249, 115, 22, 0.5));
+    position: relative;
+    text-shadow: none;
+}
+
+.title-highlight::before {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--color-primary-light), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: blur(15px);
+    opacity: 0.6;
+    z-index: -1;
 }
 
 .hero-description {
     font-size: 1.25rem;
-    color: var(--color-gray-400);
+    color: var(--color-white);
     max-width: 600px;
     margin: 0 auto var(--space-2xl);
     animation: fadeInUp 0.8s ease-out 0.2s both;
+    text-shadow: 
+        0 3px 15px rgba(0, 0, 0, 0.9),
+        0 6px 30px rgba(0, 0, 0, 0.7),
+        0 0 40px rgba(15, 23, 42, 0.5),
+        0 1px 3px rgba(0, 0, 0, 0.8);
+    position: relative;
+    z-index: 1;
+    font-weight: 400;
 }
 
 .hero-actions {
@@ -457,11 +536,22 @@ a {
     font-weight: 800;
     color: var(--color-white);
     font-family: var(--font-mono);
+    text-shadow: 
+        0 3px 15px rgba(0, 0, 0, 0.8),
+        0 0 30px rgba(15, 23, 42, 0.5);
+    position: relative;
+    z-index: 1;
 }
 
 .stat-label {
     font-size: 0.875rem;
-    color: var(--color-gray-500);
+    color: var(--color-white);
+    text-shadow: 
+        0 2px 10px rgba(0, 0, 0, 0.7),
+        0 0 20px rgba(15, 23, 42, 0.4);
+    position: relative;
+    z-index: 1;
+    font-weight: 500;
 }
 
 .stat-divider {
@@ -1211,17 +1301,40 @@ section {
 }
 
 .form-group input,
-.form-group textarea,
-.form-group select {
+.form-group textarea {
     width: 100%;
     padding: var(--space-md) var(--space-lg);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(15, 23, 42, 0.95);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--radius-md);
     color: var(--color-white);
     font-family: var(--font-display);
     font-size: 1rem;
     transition: all var(--transition-fast);
+}
+
+.form-group select {
+    width: 100%;
+    padding: var(--space-md) var(--space-lg);
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    color: var(--color-white);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    transition: all var(--transition-fast);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2306b6d4' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--space-lg) center;
+    padding-right: calc(var(--space-lg) + 20px);
+    cursor: pointer;
+}
+
+.form-group select::-ms-expand {
+    display: none; /* Hide default arrow in IE */
 }
 
 .form-group input:focus,
@@ -1232,9 +1345,107 @@ section {
     box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
 }
 
+/* Select dropdown options styling */
+/* Note: Browser support for styling options is limited, but we try our best */
+.form-group select option {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    padding: var(--space-sm) var(--space-md);
+}
+
+/* For Firefox */
+@-moz-document url-prefix() {
+    .form-group select option {
+        background-color: var(--color-dark);
+        color: var(--color-white);
+    }
+}
+
+/* Selected option */
+.form-group select option:checked,
+.form-group select option[selected] {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* Ensure select maintains styling when focused/open */
+.form-group select:focus,
+.form-group select:active {
+    background-color: rgba(15, 23, 42, 0.95);
+    color: var(--color-white);
+}
+
 .form-group textarea {
     min-height: 150px;
     resize: vertical;
+}
+
+.form-group input:invalid:not(:placeholder-shown),
+.form-group textarea:invalid:not(:placeholder-shown),
+.form-group select:invalid:not(:placeholder-shown) {
+    border-color: #ef4444;
+}
+
+.form-message {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-lg);
+    font-size: 0.95rem;
+    animation: fadeInUp 0.3s ease-out;
+}
+
+.form-message-success {
+    background: rgba(13, 148, 136, 0.2);
+    border: 1px solid rgba(13, 148, 136, 0.4);
+    color: #14b8a6;
+}
+
+.form-message-success::before {
+    content: '✓';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(13, 148, 136, 0.3);
+    color: #14b8a6;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.form-message-error {
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #f87171;
+}
+
+.form-message-error::before {
+    content: '✕';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(239, 68, 68, 0.3);
+    color: #f87171;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+#submitBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#submitBtn:disabled:hover {
+    transform: none;
+    box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
 }
 
 /* ========================================
@@ -1411,6 +1622,17 @@ section {
     box-shadow: var(--shadow-xl), var(--shadow-glow);
 }
 
+.team-name-link {
+    color: var(--color-white);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.team-name-link:hover {
+    color: var(--color-primary-light);
+    text-decoration: underline;
+}
+
 .team-avatar {
     width: 120px;
     height: 120px;
@@ -1425,6 +1647,15 @@ section {
     color: var(--color-white);
     border: 3px solid rgba(6, 182, 212, 0.4);
     box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.team-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .team-member h3 {
@@ -1560,7 +1791,7 @@ section {
     }
     
     .logo-image {
-        height: 32px;
+        height: 38px;
     }
     
     .logo-text {
