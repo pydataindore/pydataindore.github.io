@@ -2128,6 +2128,36 @@ section {
     animation: pulse 1.5s infinite;
 }
 
+/* Community partner badge on event cards */
+.event-partner-badge {
+    font-size: 0.7rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    background: rgba(232, 121, 249, 0.1);
+    border: 1px solid rgba(232, 121, 249, 0.3);
+    color: var(--color-accent);
+}
+
+/* Photo gallery strip below an event card */
+.event-photo-gallery {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    margin-top: calc(var(--space-xl) * -1);
+    margin-bottom: var(--space-3xl);
+}
+
+.event-photo-gallery img {
+    display: block;
+    max-width: 640px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
 /* ========================================
    Hackathon Event Card Highlight
    ======================================== */
@@ -2522,7 +2552,7 @@ section {
     align-items: start;
 }
 
-/* Event card that spans full width of 2-col events grid */
+/* Placeholder card in the home events grid */
 .event-placeholder {
     grid-column: span 2;
     flex-direction: column;
