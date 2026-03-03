@@ -152,7 +152,7 @@ We welcome contributions! Here's how to help:
 
 ## 📧 Contact
 
-- **Email**: [pydataindore@gmail.com](mailto:pydataindore@gmail.com)
+- **Email**: [indore@pydata.org](mailto:indore@pydata.org)
 - **LinkedIn**: [PyData Indore](https://www.linkedin.com/company/pydata-indore)
 - **Instagram**: [@pydata.indore](https://www.instagram.com/pydata.indore/)
 - **GitHub**: [@pydataindore](https://github.com/pydataindore)
