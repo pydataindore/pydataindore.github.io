@@ -12,7 +12,7 @@ The contact form on the Contact Us page uses **Formspree** to handle form submis
 
 1. After logging in, click "New Form"
 2. Enter a form name (e.g., "PyData Indore Contact Form")
-3. Set the email address where you want to receive submissions: `pydataindore@gmail.com`
+3. Set the email address where you want to receive submissions: `indore@pydata.org`
 4. Click "Create Form"
 
 ## Step 3: Get Your Form ID
@@ -37,7 +37,7 @@ The contact form on the Contact Us page uses **Formspree** to handle form submis
 
 1. Deploy your site or test locally
 2. Fill out and submit the contact form
-3. Check your email (`pydataindore@gmail.com`) for the submission
+3. Check your email (`indore@pydata.org`) for the submission
 4. You should also receive a confirmation email from Formspree
 
 ## Alternative: EmailJS (Client-Side)

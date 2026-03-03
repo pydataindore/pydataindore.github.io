@@ -2,7 +2,87 @@
 // PyData Indore - Main JavaScript
 // ========================================
 
+// ========================================
+// Theme Switcher
+// ========================================
+const THEMES = [
+    { id: 'lime',       label: 'Electric Lime', swatch: 'swatch-lime' },
+    { id: 'cyberpunk',  label: 'Cyberpunk',     swatch: 'swatch-cyberpunk' },
+    { id: 'coral',      label: 'Hot Coral',     swatch: 'swatch-coral' },
+    { id: 'amber',      label: 'Amber Gold',    swatch: 'swatch-amber' },
+];
+
+function applyTheme(id) {
+    if (id === 'lime') {
+        document.documentElement.removeAttribute('data-theme');
+    } else {
+        document.documentElement.setAttribute('data-theme', id);
+    }
+    localStorage.setItem('pydata-theme', id);
+
+    // Update active state in panel
+    document.querySelectorAll('.theme-option').forEach(opt => {
+        opt.classList.toggle('active', opt.dataset.theme === id);
+    });
+}
+
+function injectThemeSwitcher() {
+    const switcher = document.createElement('div');
+    switcher.className = 'theme-switcher';
+    switcher.innerHTML = `
+        <div class="theme-panel" id="themePanel">
+            <span class="theme-panel-label">Theme</span>
+            ${THEMES.map(t => `
+                <button class="theme-option" data-theme="${t.id}" title="${t.label}">
+                    <span class="theme-swatch ${t.swatch}"></span>
+                    ${t.label}
+                </button>
+            `).join('')}
+        </div>
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Switch theme" title="Switch theme">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/>
+                <line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+        </button>
+    `;
+    document.body.appendChild(switcher);
+
+    const panel = document.getElementById('themePanel');
+    const toggleBtn = document.getElementById('themeToggleBtn');
+
+    toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        panel.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!switcher.contains(e.target)) {
+            panel.classList.remove('open');
+        }
+    });
+
+    switcher.querySelectorAll('.theme-option').forEach(btn => {
+        btn.addEventListener('click', () => {
+            applyTheme(btn.dataset.theme);
+            panel.classList.remove('open');
+        });
+    });
+
+    // Apply saved theme on load
+    const saved = localStorage.getItem('pydata-theme') || 'lime';
+    applyTheme(saved);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    injectThemeSwitcher();
     // Navigation scroll effect
     const nav = document.querySelector('.nav');
     const navToggle = document.querySelector('.nav-toggle');
@@ -209,14 +289,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     const data = await response.json();
                     if (data.errors) {
-                        showMessage('There was an error submitting the form. Please try again or email us directly at pydataindore@gmail.com', 'error');
+                        showMessage('There was an error submitting the form. Please try again or email us directly at indore@pydata.org', 'error');
                     } else {
                         throw new Error('Form submission failed');
                     }
                 }
             } catch (error) {
                 console.error('Form submission error:', error);
-                showMessage('Unable to send message. Please email us directly at pydataindore@gmail.com or try again later.', 'error');
+                showMessage('Unable to send message. Please email us directly at indore@pydata.org or try again later.', 'error');
             } finally {
                 // Reset button state
                 submitBtn.disabled = false;
@@ -242,6 +322,83 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
+    // Proposal Form — GitHub Issues
+    const proposalForm = document.getElementById('proposalForm');
+    if (proposalForm) {
+        proposalForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const type      = document.getElementById('proposalType').value.trim();
+            const title     = document.getElementById('proposalTitle').value.trim();
+            const desc      = document.getElementById('proposalDesc').value.trim();
+            const date      = document.getElementById('proposalDate').value.trim();
+            const attendees = document.getElementById('proposalAttendees').value.trim();
+            const name      = document.getElementById('proposalName').value.trim();
+            const contact   = document.getElementById('proposalContact').value.trim();
+            const msgEl     = document.getElementById('proposalMessage');
+
+            // Validate required fields
+            let valid = true;
+            [document.getElementById('proposalType'),
+             document.getElementById('proposalTitle'),
+             document.getElementById('proposalDesc'),
+             document.getElementById('proposalName')].forEach(el => {
+                if (!el.value.trim()) {
+                    el.style.borderColor = '#ef4444';
+                    valid = false;
+                } else {
+                    el.style.borderColor = '';
+                }
+            });
+
+            if (!valid) {
+                msgEl.textContent = 'Please fill in all required fields.';
+                msgEl.className = 'form-message form-message-error';
+                msgEl.style.display = 'flex';
+                return;
+            }
+
+            msgEl.style.display = 'none';
+
+            // Build issue title and body
+            const issueTitle = `[Event Proposal] ${type}: ${title}`;
+            const issueBody = [
+                `## Event Proposal`,
+                ``,
+                `**Type:** ${type}`,
+                `**Title:** ${title}`,
+                ``,
+                `### Description`,
+                desc,
+                ``,
+                `### Details`,
+                `- **Proposed Date/Timeframe:** ${date || '_Not specified_'}`,
+                `- **Expected Attendees:** ${attendees || '_Not specified_'}`,
+                ``,
+                `### Proposer`,
+                `- **Name:** ${name}`,
+                `- **Contact:** ${contact || '_Not provided_'}`,
+                ``,
+                `---`,
+                `_Submitted via the PyData Indore website_`,
+            ].join('\n');
+
+            const baseUrl  = 'https://github.com/pydataindore/pydataindore.github.io/issues/new';
+            const params   = new URLSearchParams({
+                title: issueTitle,
+                body:  issueBody,
+                labels: 'event-proposal',
+            });
+
+            window.open(`${baseUrl}?${params.toString()}`, '_blank', 'noopener');
+
+            // Confirmation message
+            msgEl.textContent = 'GitHub opened in a new tab — review the pre-filled issue and click "Submit new issue" to send your proposal.';
+            msgEl.className = 'form-message form-message-success';
+            msgEl.style.display = 'flex';
+        });
+    }
+
     // Add staggered animation delays to grid items
     document.querySelectorAll('.topics-grid .topic-card').forEach((card, index) => {
         card.style.transitionDelay = `${index * 0.05}s`;

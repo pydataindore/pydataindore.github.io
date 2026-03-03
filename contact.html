@@ -52,11 +52,11 @@
     <!-- Contact Options -->
     <section class="content-section">
         <div class="container">
-            <div class="topics-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: var(--space-4xl);">
+            <div class="topics-grid" style="margin-bottom: var(--space-4xl);">
                 <div class="topic-card">
                     <div class="topic-icon">📧</div>
                     <h3>Email</h3>
-                    <p><a href="mailto:pydataindore@gmail.com" style="color: var(--color-primary-light);">pydataindore@gmail.com</a></p>
+                    <p><a href="mailto:indore@pydata.org" style="color: var(--color-primary-light);">indore@pydata.org</a></p>
                 </div>
                 <div class="topic-card">
                     <div class="topic-icon">💼</div>
@@ -82,12 +82,12 @@
                     <h2 class="section-title">Contact Us</h2>
                     <p class="section-text" style="margin-bottom: var(--space-xl);">
                         Have a question or want to get involved? Reach out to us at 
-                        <a href="mailto:pydataindore@gmail.com" style="color: var(--color-primary-light);">pydataindore@gmail.com</a> 
+                        <a href="mailto:indore@pydata.org" style="color: var(--color-primary-light);">indore@pydata.org</a> 
                         or use the form below.
                     </p>
                     <form id="contactForm" action="https://formspree.io/f/xnjqpyko" method="POST">
-                        <!-- Formspree will send emails to pydataindore@gmail.com -->
-                        <input type="hidden" name="_to" value="pydataindore@gmail.com">
+                        <!-- Formspree will send emails to indore@pydata.org -->
+                        <input type="hidden" name="_to" value="indore@pydata.org">
                         <input type="hidden" name="_subject" value="New Contact Form Submission - PyData Indore">
                         <input type="hidden" name="_replyto" value="" id="replyTo">
                         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
@@ -190,7 +190,7 @@
                 <span class="section-tag">Stay Connected</span>
                 <h2 class="section-title">Join Our Community</h2>
             </div>
-            <div class="content-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="content-grid-3">
                 <div class="content-card" style="text-align: center;">
                     <div style="font-size: 3rem; margin-bottom: var(--space-lg);">💼</div>
                     <h3>LinkedIn</h3>
@@ -269,8 +269,18 @@
             <div class="coc-section">
                 <h3>How can I propose a talk?</h3>
                 <p>
-                    Use the contact form above with "Speaker Proposal" as the subject, or email us directly. 
+                    Use the contact form above with "Speaker Proposal" as the subject, or email us directly.
                     Include your talk title, abstract, and a brief bio. We provide mentorship for first-time speakers!
+                </p>
+            </div>
+
+            <div class="coc-section">
+                <h3>How can I suggest a new event or meetup?</h3>
+                <p>
+                    Head over to our <a href="events.html#propose" style="color: var(--color-primary-light);">Propose an Event</a> section —
+                    fill out the form and it will automatically create a pre-filled GitHub Issue that our organizers
+                    will review and discuss publicly. No GitHub account? Email us at
+                    <a href="mailto:indore@pydata.org" style="color: var(--color-primary-light);">indore@pydata.org</a>.
                 </p>
             </div>
 
@@ -347,6 +357,7 @@
                         <li><a href="contact.html">Contact Us</a></li>
                         <li><a href="contact.html#volunteer">Volunteer</a></li>
                         <li><a href="contact.html#speak">Speak at Events</a></li>
+                        <li><a href="events.html#propose">Propose an Event</a></li>
                         <li><a href="sponsors.html">Sponsor Us</a></li>
                     </ul>
                 </div>
