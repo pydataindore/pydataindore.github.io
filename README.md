@@ -1,8 +1,16 @@
 # PyData Indore Website
 
-The official website for PyData Indore, a local chapter of the global PyData network.
+<p align="center">
+  <a href="https://indore.pydata.org"><img src="https://img.shields.io/badge/Live%20Site-indore.pydata.org-a3e635?style=for-the-badge&logo=github-pages&logoColor=black" alt="Live Site"></a>
+  <a href="https://github.com/pydataindore/pydataindore.github.io/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-e879f9?style=for-the-badge" alt="License"></a>
+  <a href="https://github.com/pydataindore/pydataindore.github.io/pulls"><img src="https://img.shields.io/badge/PRs-Welcome-a3e635?style=for-the-badge&logo=git&logoColor=black" alt="PRs Welcome"></a>
+  <a href="https://github.com/pydataindore/pydataindore.github.io/graphs/contributors"><img src="https://img.shields.io/github/contributors/pydataindore/pydataindore.github.io?style=for-the-badge&color=e879f9" alt="Contributors"></a>
+  <a href="https://github.com/pydataindore/pydataindore.github.io/stargazers"><img src="https://img.shields.io/github/stars/pydataindore/pydataindore.github.io?style=for-the-badge&color=a3e635&logo=github&logoColor=black" alt="Stars"></a>
+</p>
 
-🌐 **Live Site**: [https://pydataindore.github.io](https://pydataindore.github.io)
+<p align="center">The official website for PyData Indore, a local chapter of the global PyData network.</p>
+
+<p align="center">🌐 <strong>Live Site</strong>: <a href="https://indore.pydata.org">https://indore.pydata.org</a></p>
 
 ## About PyData Indore
 
@@ -67,7 +75,7 @@ pydataindore.github.io/
 
 ## 🎨 Design Features
 
-- **Modern Dark Theme**: Vibrant cyan (#06b6d4) with warm orange (#f97316) accents
+- **Modern Dark Theme**: Electric Lime (#a3e635) with Hot Magenta (#e879f9) accents on near-black (#080808)
 - **Typography**: Google Fonts (Space Mono, Syne) for modern, readable text
 - **Visual Effects**: Grain overlay texture and floating shape animations
 - **Responsive Design**: Mobile-first approach, works seamlessly on all devices
@@ -100,14 +108,14 @@ The CSS uses custom properties (CSS variables) for easy theming:
 
 ```css
 :root {
-    --color-primary: #06b6d4;       /* Main cyan */
-    --color-primary-dark: #0891b2;  /* Darker cyan */
-    --color-primary-light: #22d3ee; /* Lighter cyan */
-    --color-accent: #f97316;        /* Orange accent */
-    --color-accent-light: #fb923c;  /* Light orange */
-    --color-accent-dark: #ea580c;   /* Dark orange */
-    --color-dark: #0f172a;          /* Background */
-    --color-dark-soft: #1e293b;     /* Soft dark */
+    --color-primary: #a3e635;       /* Electric Lime */
+    --color-primary-dark: #84cc16;  /* Darker Lime */
+    --color-primary-light: #bef264; /* Lighter Lime */
+    --color-accent: #e879f9;        /* Hot Magenta */
+    --color-accent-light: #f0abfc;  /* Light Magenta */
+    --color-accent-dark: #d946ef;   /* Dark Magenta */
+    --color-dark: #080808;          /* Near-black background */
+    --color-dark-soft: #0f0f0f;     /* Soft dark surface */
 }
 ```
 
@@ -133,11 +141,32 @@ You can customize the theme by modifying these variables in `Assets/CSS/style.cs
 
 We welcome contributions! Here's how to help:
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+1. **Fork** the repository
+2. **Add the upstream remote** (only needed once):
+   ```bash
+   git remote add upstream https://github.com/pydataindore/pydataindore.github.io.git
+   ```
+3. **Create a feature branch** from the latest upstream:
+   ```bash
+   git fetch upstream
+   git checkout -b feature/your-feature upstream/main
+   ```
+4. **Make your changes**, then commit:
+   ```bash
+   git commit -m 'PYD-XX Description of change'
+   ```
+5. **Push** to your fork and open a Pull Request:
+   ```bash
+   git push origin feature/your-feature
+   ```
+
+> **Important — Squash & Merge:** This repo uses **Squash and Merge** for all PRs. After your PR is merged, your local commits will have different hashes from upstream. Clean up your fork with:
+> ```bash
+> git fetch upstream
+> git reset --hard upstream/main
+> git push --force-with-lease origin main
+> ```
+> ⚠️ Do **not** use GitHub's "Sync fork" button — it creates merge commits that permanently pollute your history.
 
 ### Areas We Need Help With
 
@@ -149,6 +178,31 @@ We welcome contributions! Here's how to help:
 - 🧪 Testing and bug fixes
 - 📝 Documentation improvements
 - 🚀 Performance optimizations
+
+## 👥 Contributors
+
+Thanks to everyone who has contributed to this project!
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/SamChawla">
+        <img src="https://github.com/SamChawla.png?size=100" width="100px;" alt="Sumit S Chawla" style="border-radius: 50%;"/><br/>
+        <sub><b>Sumit S Chawla</b></sub>
+      </a><br/>
+      <sub>Organizer & Lead Dev</sub>
+    </td>
+    <td align="center">
+      <a href="https://github.com/jagdish575">
+        <img src="https://github.com/jagdish575.png?size=100" width="100px;" alt="Jagdish Prajapati" style="border-radius: 50%;"/><br/>
+        <sub><b>Jagdish Prajapati</b></sub>
+      </a><br/>
+      <sub>Contributor</sub>
+    </td>
+  </tr>
+</table>
+
+Want to see your avatar here? [Contribute](#-contributing) to the project!
 
 ## 📧 Contact
 
