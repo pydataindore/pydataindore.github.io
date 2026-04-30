@@ -2549,7 +2549,7 @@ section {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-3xl);
-    align-items: start;
+    align-items: stretch;
 }
 
 /* Placeholder card in the home events grid */

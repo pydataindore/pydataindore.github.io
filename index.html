@@ -207,38 +207,23 @@
                         </svg>
                     </a>
                 </div>
-                <div class="section-visual">
-                    <div class="visual-card">
-                        <div class="card-icon">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 6v6l4 2"/>
-                            </svg>
+                <div class="section-visual" style="display: flex; align-items: center; justify-content: center;">
+                    <a href="https://youtu.be/J8cVPXnafos" target="_blank" rel="noopener"
+                       style="display: block; width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid rgba(163, 230, 53, 0.25); box-shadow: 0 0 32px rgba(163, 230, 53, 0.1); aspect-ratio: 16/9; position: relative; text-decoration: none;"
+                       onmouseover="this.querySelector('.yt-overlay').style.background='rgba(0,0,0,0.55)'"
+                       onmouseout="this.querySelector('.yt-overlay').style.background='rgba(0,0,0,0.35)'">
+                        <img src="https://img.youtube.com/vi/J8cVPXnafos/maxresdefault.jpg"
+                             alt="What is PyData? — Watch on YouTube"
+                             style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        <div class="yt-overlay" style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; background: rgba(0,0,0,0.35); transition: background 0.2s;">
+                            <div style="width: 64px; height: 64px; border-radius: 50%; background: #ff0000; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 24px rgba(0,0,0,0.5);">
+                                <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+                                    <polygon points="6,3 20,12 6,21"/>
+                                </svg>
+                            </div>
+                            <span style="color: #fff; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; opacity: 0.9;">Watch on YouTube</span>
                         </div>
-                        <h3>Open Source</h3>
-                        <p>Supporting the tools that power modern data science</p>
-                    </div>
-                    <div class="visual-card">
-                        <div class="card-icon">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                <circle cx="9" cy="7" r="4"/>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-                            </svg>
-                        </div>
-                        <h3>Community First</h3>
-                        <p>Building connections across data professionals in Central India</p>
-                    </div>
-                    <div class="visual-card">
-                        <div class="card-icon">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-                            </svg>
-                        </div>
-                        <h3>Knowledge Sharing</h3>
-                        <p>Learn from experts, practitioners, and peers alike</p>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -293,22 +278,38 @@
                         </div>
                     </div>
                 </div>
-                <!-- More events placeholder -->
-                <div class="event-card event-placeholder">
-                    <div style="font-size: 2.5rem; line-height: 1;">🛸</div>
-                    <h3 style="font-size: 1.1rem;">More Events Coming</h3>
-                    <p style="color: var(--color-gray-600); font-size: 0.875rem; max-width: 380px; margin: 0 auto;">
-                        Follow us on Meetup to be the first to know when we announce the next one.
-                    </p>
-                    <div style="display: flex; gap: var(--space-md); flex-wrap: wrap; justify-content: center; margin-top: var(--space-sm);">
-                        <a href="https://www.meetup.com/pydata-indore/" target="_blank" class="btn btn-outline">Follow on Meetup</a>
-                        <a href="events.html#propose" class="btn btn-secondary">Propose an Event</a>
+                <!-- Meet #1 preview card -->
+                <div class="event-card" data-type="meetup">
+                    <div class="event-date">
+                        <span class="date-day">23</span>
+                        <span class="date-month">May</span>
+                        <span class="date-month" style="font-size:0.6rem; color: var(--color-gray-600);">2026</span>
                     </div>
+                    <div class="event-content">
+                        <div style="display: flex; align-items: center; gap: var(--space-sm); flex-wrap: wrap; margin-bottom: var(--space-sm);">
+                            <span class="event-type">Meetup</span>
+                            <span class="event-status upcoming">Upcoming</span>
+                        </div>
+                        <h3 class="event-title">PyData Indore — Meet #1</h3>
+                        <p class="event-description">
+                            Our first official meetup at InfoBeans Foundation, Indore. Speaker and topic details coming soon — registration opening shortly!
+                        </p>
+                        <div class="event-meta">
+                            <span>
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                                InfoBeans Foundation, Indore
+                            </span>
+                        </div>
+                    </div>
+                    <a href="events.html" class="btn btn-secondary" style="margin-top: var(--space-md); width: 100%; text-align: center; justify-content: center;">View Details</a>
                 </div>
             </div>
         </div>
     </section>
-
+`
     <!-- ==================== TOPICS ==================== -->
     <section class="topics-section">
         <div class="container">
