@@ -83,6 +83,16 @@ function injectThemeSwitcher() {
 
 document.addEventListener('DOMContentLoaded', () => {
     injectThemeSwitcher();
+
+    // ── Active nav link — works on every page automatically ──
+    const currentPage = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a:not(.nav-cta)').forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href').split('#')[0] === currentPage) {
+            a.classList.add('active');
+        }
+    });
+
     // Navigation scroll effect
     const nav = document.querySelector('.nav');
     const navToggle = document.querySelector('.nav-toggle');

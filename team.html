@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="Assets/images/Logos/PyData_Indore/PyData_Indore_512x341_transparent.png">
+    <link rel="apple-touch-icon" href="Assets/images/Logos/PyData_Indore/PyData_Indore_512x341_transparent.png">
+    <title>Team | PyData Indore</title>
+    <!-- Open Graph / Social preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://indore.pydata.org/team.html">
+    <meta property="og:title" content="Team | PyData Indore">
+    <meta property="og:description" content="Meet the passionate volunteers building Central India's data science community.">
+    <meta property="og:image" content="https://indore.pydata.org/Assets/images/pydata_banner_logo.jpeg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Team | PyData Indore">
+    <meta name="twitter:description" content="Meet the passionate volunteers building Central India's data science community.">
+    <meta name="twitter:image" content="https://indore.pydata.org/Assets/images/pydata_banner_logo.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <style>
+        /* ── Team Grid ── */
+        .team-grid-main {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* ── Team Card ── */
+        .team-card {
+            background: var(--color-surface, #111);
+            border: 1px solid var(--color-border, #1f1f1f);
+            border-radius: 1rem;
+            padding: 2rem 2rem 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--color-accent, #a3e635);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 48px rgba(0,0,0,0.3);
+            border-color: var(--color-accent, #a3e635);
+        }
+
+        .team-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* ── Role Badge ── */
+        .team-role-badge {
+            font-family: var(--font-mono, 'Space Mono', monospace);
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--color-accent, #a3e635);
+            background: color-mix(in srgb, var(--color-accent, #a3e635) 12%, transparent);
+            border: 1px solid color-mix(in srgb, var(--color-accent, #a3e635) 30%, transparent);
+            border-radius: 2rem;
+            padding: 0.25rem 0.85rem;
+            width: fit-content;
+        }
+
+        /* ── Avatar ── */
+        .team-card-avatar {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2.5px solid var(--color-border, #1f1f1f);
+            flex-shrink: 0;
+            transition: border-color 0.3s ease;
+        }
+
+        .team-card:hover .team-card-avatar {
+            border-color: var(--color-accent, #a3e635);
+        }
+
+        .team-card-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ── Initials Fallback ── */
+        .team-card-initials {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            background: color-mix(in srgb, var(--color-accent, #a3e635) 15%, transparent);
+            border: 2.5px solid color-mix(in srgb, var(--color-accent, #a3e635) 35%, transparent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono, 'Space Mono', monospace);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--color-accent, #a3e635);
+            flex-shrink: 0;
+            transition: border-color 0.3s ease, background 0.3s ease;
+        }
+
+        .team-card:hover .team-card-initials {
+            background: color-mix(in srgb, var(--color-accent, #a3e635) 22%, transparent);
+            border-color: var(--color-accent, #a3e635);
+        }
+
+        /* ── Card Header Row ── */
+        .team-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+        }
+
+        .team-card-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .team-card-name {
+            font-family: var(--font-display, 'Syne', sans-serif);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--color-text, #f5f5f5);
+            margin: 0 0 0.3rem;
+            word-break: break-word;
+        }
+
+        .team-card-title {
+            font-family: var(--font-mono, 'Space Mono', monospace);
+            font-size: 0.7rem;
+            color: var(--color-gray-500, #9ca3af);
+            line-height: 1.5;
+        }
+
+        /* ── Bio ── */
+        .team-card-bio {
+            font-size: 0.9rem;
+            color: var(--color-gray-400, #9ca3af);
+            line-height: 1.7;
+            flex: 1;
+        }
+
+        /* ── Social Links ── */
+        .team-card-social {
+            display: flex;
+            gap: 0.6rem;
+            margin-top: auto;
+            padding-top: 0.85rem;
+            border-top: 1px solid var(--color-border, #1f1f1f);
+        }
+
+        .team-card-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            border: 1px solid var(--color-border, #1f1f1f);
+            color: var(--color-gray-500, #9ca3af);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .team-card-social a:hover {
+            background: var(--color-accent, #a3e635);
+            color: var(--color-bg, #0a0a0a);
+            border-color: var(--color-accent, #a3e635);
+        }
+
+        /* ── Organizer Card Highlight ── */
+        .team-card[data-role="Organizer"] {
+            border-color: color-mix(in srgb, var(--color-accent, #a3e635) 25%, transparent);
+        }
+
+        /* ── Join Banner ── */
+        .join-team-banner {
+            margin-top: var(--space-3xl, 4rem);
+            background: var(--color-surface, #111);
+            border: 1px dashed var(--color-border, #2a2a2a);
+            border-radius: 1rem;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .join-team-banner .section-tag {
+            margin: 0;
+        }
+
+        .join-team-banner h3 {
+            font-family: var(--font-display, 'Syne', sans-serif);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--color-text, #f5f5f5);
+            margin: 0;
+        }
+
+        .join-team-banner p {
+            color: var(--color-gray-500, #9ca3af);
+            max-width: 520px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .join-team-banner .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+        /* ── No Results ── */
+        .team-empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--color-gray-500, #9ca3af);
+            font-family: var(--font-mono, monospace);
+            font-size: 0.85rem;
+            display: none;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            .team-grid-main {
+                grid-template-columns: 1fr;
+            }
+
+            .join-team-banner {
+                padding: 2rem 1.25rem;
+            }
+
+            .join-team-banner h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* ── CTA Section Responsive Buttons ── */
+        @media (max-width: 480px) {
+            .cta-actions {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .cta-actions .btn-large {
+                padding: 0.6rem 1.4rem;
+                font-size: 0.85rem;
+                width: 100%;
+                max-width: 260px;
+                justify-content: center;
+            }
+
+            .cta-actions .btn-large svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            .join-team-banner .btn-group {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            .join-team-banner .btn-group a {
+                width: 100%;
+                max-width: 260px;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="Assets/images/Logos/PyData_Indore/PyData_Indore_512x341_transparent.png" alt="PyData Indore" class="logo-image">
+                <span class="logo-text">
+                    <span class="logo-py">Py</span><span class="logo-data">Data</span>
+                    <span class="logo-city">Indore</span>
+                </span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="code-of-conduct.html">Code of Conduct</a></li>
+                <li><a href="sponsors.html">Sponsors</a></li>
+                <li><a href="contact.html" class="nav-cta">Get Involved</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <span class="section-tag">Our People</span>
+                <h1>Meet the <span class="highlight">PyData Indore</span> Team</h1>
+                <p>A passionate group of volunteers, organizers, and speakers building Central India's data science community — one meetup at a time.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Team Section -->
+    <section class="content-section">
+        <div class="container">
+
+            <!-- Grid -->
+            <div class="team-grid-main" id="teamGrid">
+                <p class="team-empty" id="teamEmpty"># no members found</p>
+            </div>
+
+            <!-- Join Banner -->
+            <div class="join-team-banner">
+                <span class="section-tag">Join Us</span>
+                <h3>Want to be part of the team?</h3>
+                <p>We're always looking for passionate volunteers who want to help grow the data science community in Central India. Whether you want to speak, organize, or help behind the scenes — there's a role for you.</p>
+                <div class="btn-group">
+                    <a href="contact.html#volunteer" class="btn btn-primary">Become a Volunteer</a>
+                    <a href="contact.html#speak" class="btn btn-secondary">Speak at an Event</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Join PyData Indore?</h2>
+                <p>
+                    Whether you're a complete beginner or a seasoned data scientist,
+                    there's a place for you in our community.
+                </p>
+                <div class="cta-actions">
+                    <a href="events.html" class="btn btn-primary btn-large">
+                        Attend an Event
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary btn-large">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <span class="logo-py">Py</span><span class="logo-data">Data</span>
+                        <span class="logo-city">Indore</span>
+                    </a>
+                    <p>Part of the global PyData network, an educational program of NumFOCUS, a 501(c)(3) nonprofit.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/pydata-indore" target="_blank" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/pydata.indore/" target="_blank" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/pydataindore" target="_blank" aria-label="GitHub">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.meetup.com/pydata-indore/" target="_blank" aria-label="Meetup">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.965 8.521C19.988 8.347 20 8.173 20 8c0-2.379-2.143-4.288-4.521-3.965C14.786 2.802 13.466 2 12 2s-2.786.802-3.479 2.035C6.138 4.712 4 3.621 4 6c0 .173.012.347.035.521C2.802 7.215 2 8.535 2 10s.802 2.785 2.035 3.479C4.012 13.653 4 13.827 4 14c0 2.379 2.138 3.465 4.521 3.965C9.214 19.198 10.534 20 12 20s2.786-.802 3.479-2.035C17.857 17.465 20 16.379 20 14c0-.173-.012-.347-.035-.521C21.198 12.785 22 11.465 22 10s-.802-2.785-2.035-3.479z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="code-of-conduct.html">Code of Conduct</a></li>
+                        <li><a href="sponsors.html">Sponsors</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://pydata.org" target="_blank">PyData Global</a></li>
+                        <li><a href="https://numfocus.org" target="_blank">NumFOCUS</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Get Involved</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="contact.html#volunteer">Volunteer</a></li>
+                        <li><a href="contact.html#speak">Speak at Events</a></li>
+                        <li><a href="events.html#propose">Propose an Event</a></li>
+                        <li><a href="sponsors.html">Sponsor Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PyData Indore. An educational program of <a href="https://numfocus.org" target="_blank">NumFOCUS</a>, a 501(c)(3) nonprofit.</p>
+                <p class="footer-credits">Made with ❤️ by the PyData Indore community</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="Assets/JavaScript/main.js"></script>
+    <script>
+    // ── SVG Icons ──
+    const ICONS = {
+        linkedin: `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>`,
+        github:   `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>`,
+        instagram:`<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>`,
+        twitter:  `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`,
+    };
+
+    // ── Build a card element from member data ──
+    function buildCard(member) {
+        const card = document.createElement('div');
+        card.className = 'team-card';
+        card.dataset.role = member.role;
+
+        // Avatar or initials
+        let avatarHTML;
+        if (member.photo) {
+            avatarHTML = `<div class="team-card-avatar">
+                <img src="${member.photo}" alt="${member.name}" loading="lazy"
+                     onerror="this.parentElement.outerHTML='<div class=\\'team-card-initials\\'>${member.initials}</div>'">
+            </div>`;
+        } else {
+            avatarHTML = `<div class="team-card-initials">${member.initials}</div>`;
+        }
+
+        // Social links — only render if url is non-empty
+        const socials = ['linkedin', 'github', 'instagram', 'twitter']
+            .filter(k => member.social && member.social[k])
+            .map(k => `<a href="${member.social[k]}" target="_blank" rel="noopener noreferrer" aria-label="${k}">${ICONS[k]}</a>`)
+            .join('');
+
+        const socialRow = socials
+            ? `<div class="team-card-social">${socials}</div>`
+            : '';
+
+        card.innerHTML = `
+            <div class="team-role-badge">${member.role}</div>
+            <div class="team-card-header">
+                ${avatarHTML}
+                <div class="team-card-info">
+                    <h3 class="team-card-name">${member.name}</h3>
+                    <p class="team-card-title">${member.title}</p>
+                </div>
+            </div>
+            <p class="team-card-bio">${member.bio}</p>
+            ${socialRow}
+        `;
+
+        return card;
+    }
+
+    // ── Staggered entrance animation ──
+    function animateCards() {
+        const cards = document.querySelectorAll('.team-card');
+        cards.forEach((card, i) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(24px)';
+            card.style.transition = `opacity 0.5s ease ${i * 0.07}s, transform 0.5s ease ${i * 0.07}s`;
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    }
+
+    // ── Main: load team.json and render ──
+    async function loadTeam() {
+        const grid = document.getElementById('teamGrid');
+
+        try {
+            const res = await fetch('team.json');
+            if (!res.ok) throw new Error('Failed to load team.json');
+            const members = await res.json();
+
+            const emptyEl = document.getElementById('teamEmpty');
+            members.forEach(member => {
+                const card = buildCard(member);
+                grid.insertBefore(card, emptyEl);
+            });
+
+            animateCards();
+
+        } catch (err) {
+            console.error('Team load error:', err);
+            const emptyEl = document.getElementById('teamEmpty');
+            if (emptyEl) {
+                emptyEl.textContent = '# could not load team data — check team.json path';
+                emptyEl.style.display = 'block';
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadTeam);
+    </script>
+</body>
+</html>

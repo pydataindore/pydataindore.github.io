@@ -1,0 +1,114 @@
+[
+  {
+    "name": "Sumit S Chawla",
+    "role": "Organizer",
+    "title": "Chapter Lead · Data Enthusiast",
+    "bio": "Passionate about building the data science community in Central India and connecting practitioners, researchers, and students.",
+    "initials": "SS",
+    "photo": "Assets/images/Team/Sumit_S_Chawla.jpg",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/sumit-s-chawla/",
+      "github": "https://github.com/SamChawla",
+      "instagram": "https://www.instagram.com/sumit_s_chawla/",
+      "twitter": ""
+    }
+  },
+  {
+    "name": "Member Name",
+    "role": "Co-Organizer",
+    "title": "Co-Organizer · Role / Expertise",
+    "bio": "Short bio goes here — what they work on, their passion for the community, and any notable contributions.",
+    "initials": "AB",
+    "photo": "",
+    "social": {
+      "linkedin": "",
+      "github": "",
+      "instagram": "",
+      "twitter": ""
+    }
+  },
+  {
+    "name": "Member Name",
+    "role": "Co-Organizer",
+    "title": "Co-Organizer · Role / Expertise",
+    "bio": "Short bio goes here — what they work on, their passion for the community, and any notable contributions.",
+    "initials": "CD",
+    "photo": "",
+    "social": {
+      "linkedin": "",
+      "github": "",
+      "instagram": "",
+      "twitter": ""
+    }
+  },
+  {
+    "name": "Member Name",
+    "role": "Volunteer",
+    "title": "Volunteer · Role / Expertise",
+    "bio": "Short bio goes here — what they work on, their passion for the community, and any notable contributions.",
+    "initials": "EF",
+    "photo": "",
+    "social": {
+      "linkedin": "",
+      "github": "",
+      "instagram": "",
+      "twitter": ""
+    }
+  },
+  {
+    "name": "Member Name",
+    "role": "Volunteer",
+    "title": "Volunteer · Role / Expertise",
+    "bio": "Short bio goes here — what they work on, their passion for the community, and any notable contributions.",
+    "initials": "GH",
+    "photo": "",
+    "social": {
+      "linkedin": "",
+      "github": "",
+      "instagram": "",
+      "twitter": ""
+    }
+  },
+  {
+    "name": "Member Name",
+    "role": "Speaker",
+    "title": "Speaker · Topic Expertise",
+    "bio": "Short bio goes here — what they work on, their passion for the community, and any notable contributions.",
+    "initials": "IJ",
+    "photo": "",
+    "social": {
+      "linkedin": "",
+      "github": "",
+      "instagram": "",
+      "twitter": ""
+    }
+  },
+  {
+    "name": "Member Name",
+    "role": "Volunteer",
+    "title": "Volunteer · Role / Expertise",
+    "bio": "Short bio goes here — what they work on, their passion for the community, and any notable contributions.",
+    "initials": "KL",
+    "photo": "",
+    "social": {
+      "linkedin": "",
+      "github": "",
+      "instagram": "",
+      "twitter": ""
+    }
+  },
+  {
+    "name": "Member Name",
+    "role": "Advisor",
+    "title": "Advisor · Domain / Institution",
+    "bio": "Short bio goes here — what they work on, their passion for the community, and any notable contributions.",
+    "initials": "MN",
+    "photo": "",
+    "social": {
+      "linkedin": "",
+      "github": "",
+      "instagram": "",
+      "twitter": ""
+    }
+  }
+]
