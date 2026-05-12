@@ -21,8 +21,58 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Assets/CSS/style.css">
 </head>
-<body>
+<body class="has-announcement">
     <div class="grain"></div>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar" aria-label="Upcoming event announcement">
+        <a href="https://www.meetup.com/pydata-indore/events/314541790" target="_blank" rel="noopener" class="announcement-track" style="text-decoration: none;">
+            <span class="announcement-item">
+                <span class="announcement-dot"></span>
+                PyData Indore — Meet #1
+                <span class="announcement-sep">·</span>
+                23 May 2026
+                <span class="announcement-sep">·</span>
+                InfoBeans Foundation, Indore
+                <span class="announcement-sep">·</span>
+                Registration Now Open — Register on Meetup
+                <span class="announcement-sep">·</span>
+            </span>
+            <span class="announcement-item">
+                <span class="announcement-dot"></span>
+                PyData Indore — Meet #1
+                <span class="announcement-sep">·</span>
+                23 May 2026
+                <span class="announcement-sep">·</span>
+                InfoBeans Foundation, Indore
+                <span class="announcement-sep">·</span>
+                Registration Now Open — Register on Meetup
+                <span class="announcement-sep">·</span>
+            </span>
+            <span class="announcement-item">
+                <span class="announcement-dot"></span>
+                PyData Indore — Meet #1
+                <span class="announcement-sep">·</span>
+                23 May 2026
+                <span class="announcement-sep">·</span>
+                InfoBeans Foundation, Indore
+                <span class="announcement-sep">·</span>
+                Registration Now Open — Register on Meetup
+                <span class="announcement-sep">·</span>
+            </span>
+            <span class="announcement-item">
+                <span class="announcement-dot"></span>
+                PyData Indore — Meet #1
+                <span class="announcement-sep">·</span>
+                23 May 2026
+                <span class="announcement-sep">·</span>
+                InfoBeans Foundation, Indore
+                <span class="announcement-sep">·</span>
+                Registration Now Open — Register on Meetup
+                <span class="announcement-sep">·</span>
+            </span>
+        </a>
+    </div>
 
     <!-- Navigation -->
     <nav class="nav">
@@ -41,6 +91,7 @@
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="events.html">Events</a></li>
+                <li><a href="team.html">Team</a></li>
                 <li><a href="code-of-conduct.html">Code of Conduct</a></li>
                 <li><a href="sponsors.html">Sponsors</a></li>
                 <li><a href="contact.html" class="nav-cta">Get Involved</a></li>
@@ -90,18 +141,18 @@
                 </div>
                 <div class="hero-stats">
                     <div class="stat">
-                        <span class="stat-number">100+</span>
+                        <span class="stat-number">150+</span>
                         <span class="stat-label">Members</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number">75+</span>
+                        <span class="stat-label">LinkedIn Followers</span>
                     </div>
                     <div class="stat-divider"></div>
                     <div class="stat">
                         <span class="stat-number">50+</span>
                         <span class="stat-label">Hackathon Participants</span>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat">
-                        <span class="stat-number">∞</span>
-                        <span class="stat-label">Opportunities</span>
                     </div>
                 </div>
             </div>
@@ -120,7 +171,7 @@
                         <span class="terminal-line"><span class="t-keyword">import</span> <span class="t-module">pydata_indore</span> <span class="t-keyword">as</span> <span class="t-module">pdi</span></span>
                         <span class="terminal-line"> </span>
                         <span class="terminal-line"><span class="t-comment"># Community stats</span></span>
-                        <span class="terminal-line"><span class="t-var">pdi</span><span class="t-op">.</span>members    <span class="t-op">=</span> <span class="t-number">100</span></span>
+                        <span class="terminal-line"><span class="t-var">pdi</span><span class="t-op">.</span>members    <span class="t-op">=</span> <span class="t-number">150</span></span>
                         <span class="terminal-line"><span class="t-var">pdi</span><span class="t-op">.</span>hackathons <span class="t-op">=</span> <span class="t-number">1</span></span>
                         <span class="terminal-line"><span class="t-var">pdi</span><span class="t-op">.</span>city       <span class="t-op">=</span> <span class="t-string">"Indore, MP"</span></span>
                         <span class="terminal-line"> </span>
@@ -153,8 +204,12 @@
         <div class="container">
             <div class="stats-strip-grid">
                 <div class="strip-stat">
-                    <span class="strip-stat-num">100+</span>
+                    <span class="strip-stat-num">150+</span>
                     <span class="strip-stat-label">Community Members</span>
+                </div>
+                <div class="strip-stat">
+                    <span class="strip-stat-num">75+</span>
+                    <span class="strip-stat-label">LinkedIn Followers</span>
                 </div>
                 <div class="strip-stat">
                     <span class="strip-stat-num">50+</span>
@@ -292,7 +347,8 @@
                         </div>
                         <h3 class="event-title">PyData Indore — Meet #1</h3>
                         <p class="event-description">
-                            Our first official meetup at InfoBeans Foundation, Indore. Speaker and topic details coming soon — registration opening shortly!
+                            <strong style="color: var(--color-gray-300);">From Prompt to Real Workflow: Building Your First Agentic AI System with Python.</strong>
+                            9:30 AM – 12:00 PM · InfoBeans Foundation · Free entry.
                         </p>
                         <div class="event-meta">
                             <span>
@@ -303,13 +359,16 @@
                                 InfoBeans Foundation, Indore
                             </span>
                         </div>
+                        <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-top: var(--space-lg);">
+                            <a href="https://www.meetup.com/pydata-indore/events/314541790" target="_blank" rel="noopener" class="btn btn-primary">Register Now</a>
+                            <a href="meet-1.html" class="btn btn-secondary">View Details →</a>
+                        </div>
                     </div>
-                    <a href="events.html" class="btn btn-secondary" style="margin-top: var(--space-md); width: 100%; text-align: center; justify-content: center;">View Details</a>
                 </div>
             </div>
         </div>
     </section>
-`
+
     <!-- ==================== TOPICS ==================== -->
     <section class="topics-section">
         <div class="container">
@@ -375,7 +434,7 @@
             <div class="team-grid">
                 <div class="team-member">
                     <div class="team-avatar">
-                        <img src="Assets/images/Team/Sumit_S_Chawla.jpg" alt="Sumit S Chawla">
+                        <img src="Assets/images/Team/Sumit_S_Chawla.jpeg" alt="Sumit S Chawla" style="object-position: center top;">
                     </div>
                     <h3><a href="https://www.linkedin.com/in/sumit-s-chawla/" target="_blank" class="team-name-link">Sumit S Chawla</a></h3>
                     <div class="team-role">Organizer</div>
