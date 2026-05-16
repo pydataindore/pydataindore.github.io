@@ -1535,6 +1535,13 @@ section {
     min-height: 110px;
 }
 
+.partner-logo-box.partner-logo-box-enovanto img {
+    max-height: 80px;
+    max-width: 100%;
+    object-fit: contain;
+    filter: brightness(0.85);
+}
+
 .partner-logo-stack {
     display: flex;
     flex-direction: column;
@@ -3345,3 +3352,4 @@ section {
         font-size: clamp(2rem, 9vw, 3rem);
     }
 }
+
