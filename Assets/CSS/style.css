@@ -1535,11 +1535,15 @@ section {
     min-height: 110px;
 }
 
+.partner-logo-box.partner-logo-box-enovanto {
+    background: #fff;
+}
+
 .partner-logo-box.partner-logo-box-enovanto img {
     max-height: 80px;
     max-width: 100%;
     object-fit: contain;
-    filter: brightness(0.85);
+    filter: none;
 }
 
 .partner-logo-stack {
@@ -1584,7 +1588,8 @@ section {
 
     .partner-logo-box,
     .partner-logo-box.partner-logo-box-aassay,
-    .partner-logo-box.partner-logo-box-venue {
+    .partner-logo-box.partner-logo-box-venue,
+    .partner-logo-box.partner-logo-box-enovanto {
         min-height: 136px;
     }
 }
