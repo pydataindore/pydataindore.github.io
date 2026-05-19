@@ -1453,6 +1453,39 @@ section {
     line-height: 1.5;
 }
 
+.speaker-contact {
+    margin-top: var(--space-md);
+}
+
+.speaker-contact a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.8rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-md);
+    color: var(--color-gray-400);
+    font-size: 0.78rem;
+    font-family: var(--font-mono);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.speaker-contact a:hover {
+    background: rgba(163, 230, 53, 0.1);
+    border-color: var(--border-lime);
+    color: var(--color-primary);
+    transform: translateY(-1px);
+    box-shadow: 0 0 12px rgba(163, 230, 53, 0.12);
+}
+
+.speaker-contact svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
 .venue-card {
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.06);
