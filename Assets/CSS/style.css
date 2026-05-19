@@ -1592,8 +1592,10 @@ section {
     .schedule-item { grid-template-columns: 96px 1fr; }
     .schedule-item::before { left: 92px; }
     .venue-card { grid-template-columns: 1fr; }
-    .speaker-card { flex-direction: column; }
+    .speaker-card { flex-direction: column; align-items: flex-start; }
     .speaker-avatar { width: 56px; height: 56px; }
+    .speaker-info { display: flex; flex-direction: column; gap: var(--space-sm); align-items: flex-start; }
+    .speaker-info .speaker-social { align-self: flex-start; margin-top: var(--space-md); }
 }
 
 /* ========================================
@@ -1710,6 +1712,15 @@ section {
     color: var(--color-primary);
     transform: translateY(-3px);
     box-shadow: 0 0 15px rgba(163, 230, 53, 0.2);
+}
+
+.speaker-info .speaker-social {
+    margin-top: var(--space-md);
+}
+
+.speaker-info .speaker-social a {
+    width: 34px;
+    height: 34px;
 }
 
 .footer-links h4 {
