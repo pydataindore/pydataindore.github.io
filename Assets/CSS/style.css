@@ -916,6 +916,20 @@ body.has-announcement .nav {
     font-size: 1rem;
 }
 
+.btn:disabled,
+.btn.disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: none;
+    transform: none;
+}
+
+.btn:disabled::before,
+.btn.disabled::before {
+    display: none;
+}
+
 /* ========================================
    Sections
    ======================================== */
@@ -3366,6 +3380,171 @@ section {
     /* Prevent hero title overflow on very small screens */
     .hero-title {
         font-size: clamp(2rem, 9vw, 3rem);
+    }
+}
+
+/* ========================================
+   Photo Carousel / Gallery
+   ======================================== */
+.gallery-section {
+    padding: var(--space-4xl) 0;
+}
+
+.carousel {
+    position: relative;
+    max-width: 900px;
+    margin: var(--space-2xl) auto 0;
+}
+
+.carousel-viewport {
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-slide {
+    min-width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #0a0a0a;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    z-index: 2;
+}
+
+.carousel-btn:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #0a0a0a;
+}
+
+.carousel-btn-prev {
+    left: var(--space-md);
+}
+
+.carousel-btn-next {
+    right: var(--space-md);
+}
+
+.carousel-dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: var(--space-lg);
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s ease, width 0.2s ease, border-radius 0.2s ease;
+}
+
+.carousel-dot.active {
+    background: var(--color-primary);
+    width: 22px;
+    border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+.heading-anchor {
+    margin-left: 0.4em;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.section-title:hover .heading-anchor,
+.heading-anchor:focus {
+    opacity: 0.7;
+}
+
+.heading-anchor:hover {
+    opacity: 1;
+}
+
+/* ========================================
+   Logo Marquee (moving carousel)
+   ======================================== */
+.logo-marquee {
+    margin-top: var(--space-2xl);
+    overflow: hidden;
+    position: relative;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.logo-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: logo-marquee-scroll 32s linear infinite;
+}
+
+.logo-marquee:hover .logo-marquee-track {
+    animation-play-state: paused;
+}
+
+.logo-marquee-item {
+    flex: 0 0 220px;
+    width: 220px;
+    margin-right: var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+@keyframes logo-marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .logo-marquee-track {
+        animation: none;
+    }
+    .logo-marquee {
+        overflow-x: auto;
     }
 }
 

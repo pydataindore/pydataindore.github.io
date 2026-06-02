@@ -81,8 +81,102 @@ function injectThemeSwitcher() {
     applyTheme(saved);
 }
 
+// ========================================
+// Photo Carousel(s)
+// ========================================
+function initCarousels() {
+    document.querySelectorAll('[data-carousel]').forEach(carousel => {
+        const track = carousel.querySelector('[data-carousel-track]');
+        const dotsContainer = carousel.querySelector('[data-carousel-dots]');
+        const prevBtn = carousel.querySelector('[data-carousel-prev]');
+        const nextBtn = carousel.querySelector('[data-carousel-next]');
+        if (!track) return;
+
+        let slides = Array.from(track.querySelectorAll('.carousel-slide'));
+        let index = 0;
+        let autoplayTimer = null;
+
+        const update = () => {
+            track.style.transform = `translateX(-${index * 100}%)`;
+            if (dotsContainer) {
+                dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
+                    d.classList.toggle('active', i === index);
+                });
+            }
+        };
+
+        const buildDots = () => {
+            if (!dotsContainer) return;
+            dotsContainer.innerHTML = '';
+            slides.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = 'carousel-dot' + (i === index ? ' active' : '');
+                dot.setAttribute('aria-label', `Go to photo ${i + 1}`);
+                dot.addEventListener('click', () => { index = i; update(); restartAutoplay(); });
+                dotsContainer.appendChild(dot);
+            });
+            const single = slides.length <= 1;
+            [prevBtn, nextBtn].forEach(b => { if (b) b.style.display = single ? 'none' : ''; });
+            dotsContainer.style.display = single ? 'none' : '';
+        };
+
+        const go = (dir) => {
+            if (slides.length === 0) return;
+            index = (index + dir + slides.length) % slides.length;
+            update();
+        };
+
+        function restartAutoplay() {
+            if (autoplayTimer) clearInterval(autoplayTimer);
+            if (slides.length > 1) autoplayTimer = setInterval(() => go(1), 5000);
+        }
+
+        // Drop slides whose image can't load (e.g. photos not added yet),
+        // and hide the whole section if none remain.
+        slides.forEach(slide => {
+            const img = slide.querySelector('img');
+            if (!img) return;
+            const drop = () => {
+                slide.remove();
+                slides = Array.from(track.querySelectorAll('.carousel-slide'));
+                if (slides.length === 0) {
+                    const section = carousel.closest('section');
+                    if (section) section.style.display = 'none';
+                    if (autoplayTimer) clearInterval(autoplayTimer);
+                    return;
+                }
+                if (index >= slides.length) index = slides.length - 1;
+                buildDots();
+                update();
+                restartAutoplay();
+            };
+            img.addEventListener('error', drop);
+            if (img.complete && img.naturalWidth === 0) drop();
+        });
+
+        if (prevBtn) prevBtn.addEventListener('click', () => { go(-1); restartAutoplay(); });
+        if (nextBtn) nextBtn.addEventListener('click', () => { go(1); restartAutoplay(); });
+
+        carousel.addEventListener('mouseenter', () => { if (autoplayTimer) clearInterval(autoplayTimer); });
+        carousel.addEventListener('mouseleave', restartAutoplay);
+
+        // Touch swipe support
+        let startX = 0;
+        track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+        track.addEventListener('touchend', (e) => {
+            const dx = e.changedTouches[0].clientX - startX;
+            if (Math.abs(dx) > 40) { go(dx < 0 ? 1 : -1); restartAutoplay(); }
+        }, { passive: true });
+
+        buildDots();
+        update();
+        restartAutoplay();
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     injectThemeSwitcher();
+    initCarousels();
     // Navigation scroll effect
     const nav = document.querySelector('.nav');
     const navToggle = document.querySelector('.nav-toggle');

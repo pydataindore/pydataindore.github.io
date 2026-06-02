@@ -72,7 +72,7 @@
                 </div>
                 <div style="display: flex; align-items: center; gap: var(--space-sm); flex-wrap: wrap; margin-bottom: var(--space-lg);">
                     <span class="event-type">Meetup</span>
-                    <span class="event-status upcoming">Upcoming</span>
+                    <span class="event-status completed">Completed</span>
                 </div>
                 <h1 style="margin-bottom: var(--space-sm);">PyData Indore — Meet #1</h1>
                 <p id="typing-headline" style="font-size: 1.15rem; color: var(--color-primary); font-family: var(--font-mono); margin-bottom: var(--space-md); letter-spacing: -0.01em; min-height: 1.6em;"></p>
@@ -109,13 +109,9 @@
                     </span>
                 </div>
                 <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
-                    <a href="https://www.meetup.com/pydata-indore/events/314541790" target="_blank" rel="noopener" class="btn btn-primary btn-large">
-                        Register on Meetup
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                            <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
-                        </svg>
-                    </a>
+                    <button type="button" class="btn btn-primary btn-large" disabled aria-disabled="true">
+                        Registration Closed
+                    </button>
                     <a href="events.html" class="btn btn-secondary btn-large">All Events</a>
                 </div>
             </div>
@@ -366,16 +362,12 @@
                         <span class="event-sidebar-value">60 seats</span>
                     </div>
 
-                    <a href="https://www.meetup.com/pydata-indore/events/314541790" target="_blank" rel="noopener"
-                       class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: var(--space-xl);">
-                        Register Now
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                            <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
-                        </svg>
-                    </a>
+                    <button type="button" class="btn btn-primary" disabled aria-disabled="true"
+                            style="width: 100%; justify-content: center; margin-top: var(--space-xl);">
+                        Registration Closed
+                    </button>
                     <p style="text-align: center; font-family: var(--font-mono); font-size: 0.68rem; color: var(--color-gray-700); margin-top: var(--space-sm);">
-                        Redirects to Meetup.com
+                        This event has concluded
                     </p>
                 </aside>
 
@@ -387,11 +379,11 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>See You on 23rd May!</h2>
-                <p>Register now and join Central India's growing data science community at our very first meetup.</p>
+                <h2>Thank You for Joining Us!</h2>
+                <p>Meet #1 was a wonderful start to Central India's data science community. Stay tuned — Event 2 is coming soon.</p>
                 <div class="cta-actions">
-                    <a href="https://www.meetup.com/pydata-indore/events/314541790" target="_blank" rel="noopener" class="btn btn-primary btn-large">
-                        Register on Meetup
+                    <a href="https://www.meetup.com/pydata-indore/" target="_blank" rel="noopener" class="btn btn-primary btn-large">
+                        Follow on Meetup
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
