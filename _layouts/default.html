@@ -28,10 +28,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/Assets/CSS/style.css">
+    {%- comment -%} ?v=<build time> busts browser cache on every rebuild/deploy {%- endcomment -%}
+    {%- assign cache_bust = site.time | date: '%s' -%}
+    <link rel="stylesheet" href="/Assets/CSS/style.css?v={{ cache_bust }}">
 
     {%- comment -%} Optional per-page stylesheet, e.g. hack-days.html sets:  extra_css: /Assets/CSS/hack-days.css {%- endcomment -%}
-    {% if page.extra_css %}<link rel="stylesheet" href="{{ page.extra_css }}">{% endif %}
+    {% if page.extra_css %}<link rel="stylesheet" href="{{ page.extra_css }}?v={{ cache_bust }}">{% endif %}
 </head>
 <body>
     <div class="grain"></div>
@@ -42,7 +44,7 @@
 
     {% include footer.html %}
 
-    <script src="/Assets/JavaScript/main.js"></script>
-    {% if page.extra_js %}<script src="{{ page.extra_js }}"></script>{% endif %}
+    <script src="/Assets/JavaScript/main.js?v={{ cache_bust }}"></script>
+    {% if page.extra_js %}<script src="{{ page.extra_js }}?v={{ cache_bust }}"></script>{% endif %}
 </body>
 </html>

@@ -10,9 +10,8 @@ extra_css: "/Assets/CSS/hack-days.css"
     <header class="page-header">
         <div class="container">
             <div class="page-header-content hack-hero">
-                <img src="/Assets/images/HackDays/hack-days-banner.png"
-                     alt="PyData Indore Hack Days — Major League Hacking · Hack Days Indore · Sponsored by SSi Digital · SSi Digital, Bhawarkua Main Rd, Indore · 18 July 2026, 10:30 AM – 5:30 PM"
-                     class="hack-banner" width="1774" height="887">
+
+                <!-- Breadcrumb (above the banner) -->
                 <div style="display: flex; align-items: center; gap: var(--space-sm); flex-wrap: wrap; margin-bottom: var(--space-lg);">
                     <a href="/events/" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-gray-600); text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
@@ -21,33 +20,29 @@ extra_css: "/Assets/CSS/hack-days.css"
                     <span style="color: var(--color-gray-700); font-size: 0.75rem;">/</span>
                     <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-gray-500);">Hack Days</span>
                 </div>
-                <div style="display: flex; align-items: center; gap: var(--space-sm); flex-wrap: wrap; margin-bottom: var(--space-lg);">
-                    <span class="event-type">Mini Hackathon</span>
-                    <span class="event-status upcoming">Upcoming</span>
-                    <span class="event-partner-badge">MLH Hack Days</span>
-                </div>
-                <h1 style="margin-bottom: var(--space-sm);">PyData Indore <span class="highlight">Hack Days</span></h1>
-                <p id="typing-headline" style="font-size: 1.15rem; color: var(--color-primary); font-family: var(--font-mono); margin-bottom: var(--space-md); letter-spacing: -0.01em; min-height: 1.6em;"></p>
 
-                <!-- Powered by — SSi Digital (main sponsor) -->
-                <div class="hack-poweredby">
-                    <span class="hack-poweredby-label">Powered by</span>
-                    <a href="https://online.ssidigital.in/" target="_blank" rel="noopener" class="hack-poweredby-logo is-primary" aria-label="SSi Digital Academy">
-                        <img src="/Assets/images/HackDays/ssi_digital.png" alt="SSi Digital Academy">
-                    </a>
-                    <span class="hack-poweredby-label">in partnership with</span>
-                    <a href="https://mlh.io/" target="_blank" rel="noopener" class="hack-poweredby-logo is-secondary" aria-label="Major League Hacking">
-                        <img src="/Assets/images/HackDays/mlh-white.svg" alt="MLH — Major League Hacking">
-                    </a>
-                </div>
+                <img src="/Assets/images/HackDays/hack-days-banner.png"
+                     alt="PyData Indore Hack Days — Major League Hacking · 18 July 2026, 10:30 AM – 5:30 PM · SSi Digital, Indore"
+                     class="hack-banner" width="1774" height="887">
 
-                <p class="section-text" style="max-width: 720px; margin-bottom: var(--space-lg);">
-                    A one-day, in-person mini hackathon for builders in Central India, brought to you by
-                    <strong style="color: var(--color-gray-200);">SSi Digital Academy</strong>. Form a team, pick a problem,
-                    and ship something real with Python &amp; data — from quick prototypes to clever ML hacks.
-                    Beginner-friendly, hands-on, and open to all skill levels.
-                </p>
-                <div class="event-detail-chips">
+                <!-- Two-column intro: text left, quick facts right -->
+                <div class="hack-hero-grid">
+                  <div class="hack-hero-main">
+                    <div style="display: flex; align-items: center; gap: var(--space-sm); flex-wrap: wrap; margin-bottom: var(--space-lg);">
+                        <span class="event-type">Mini Hackathon</span>
+                        <span class="event-status upcoming">Upcoming</span>
+                        <span class="event-partner-badge">MLH Hack Days</span>
+                    </div>
+                    <h1 style="margin-bottom: var(--space-sm);">PyData Indore <span class="highlight">Hack Days</span></h1>
+                    <p id="typing-headline" style="font-size: 1.15rem; color: var(--color-primary); font-family: var(--font-mono); margin-bottom: var(--space-md); letter-spacing: -0.01em; min-height: 1.6em;">One day. One prototype. Build something real with Python &amp; data.</p>
+
+                    <p class="section-text" style="margin-bottom: var(--space-lg);">
+                        A one-day, in-person mini hackathon for builders in Central India, brought to you by
+                        <strong style="color: var(--color-gray-200);">SSi Digital Academy</strong>. Form a team, pick a problem,
+                        and ship something real with Python &amp; data — from quick prototypes to clever ML hacks.
+                        Beginner-friendly, hands-on, and open to all skill levels.
+                    </p>
+                    <div class="event-detail-chips">
                     <span class="event-detail-chip chip-primary">
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
@@ -79,34 +74,52 @@ extra_css: "/Assets/CSS/hack-days.css"
                         Free Entry
                     </span>
                 </div>
-                <div style="display: flex; gap: var(--space-md); flex-wrap: wrap; margin-top: var(--space-xl);">
-                    <a href="https://events.mlh.com/events/14415-pydata-indore-hack-days" target="_blank" rel="noopener" class="btn btn-primary btn-large">
-                        Register on MLH
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                    <a href="#faq" class="btn btn-secondary btn-large">Read the FAQ</a>
-                </div>
+                    <div style="display: flex; gap: var(--space-md); flex-wrap: wrap; margin-top: var(--space-xl);">
+                        <a href="https://events.mlh.com/events/14415-pydata-indore-hack-days" target="_blank" rel="noopener" class="btn btn-primary btn-large">
+                            Register on MLH
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <a href="#faq" class="btn btn-secondary btn-large">Read the FAQ</a>
+                    </div>
+                  </div><!-- /.hack-hero-main -->
 
-                <!-- Hero highlight callouts -->
-                <div class="hack-highlights">
-                    <div class="hack-highlight">
-                        <span class="hack-highlight-label">Format</span>
-                        <span class="hack-highlight-value">Offline<small>1-day · in-person</small></span>
+                  <!-- Quick facts — fills the right side -->
+                  <aside class="hack-hero-aside">
+                    <div class="hack-highlights">
+                        <div class="hack-highlight">
+                            <span class="hack-highlight-label">Format</span>
+                            <span class="hack-highlight-value">Offline<small>1-day · in-person</small></span>
+                        </div>
+                        <div class="hack-highlight">
+                            <span class="hack-highlight-label">Team Size</span>
+                            <span class="hack-highlight-value">1 – 4<small>solo or squad</small></span>
+                        </div>
+                        <div class="hack-highlight">
+                            <span class="hack-highlight-label">Perks</span>
+                            <span class="hack-highlight-value">Swag + Certs<small>MLH goodies &amp; more</small></span>
+                        </div>
+                        <div class="hack-highlight">
+                            <span class="hack-highlight-label">Who</span>
+                            <span class="hack-highlight-value">Students &amp; Pros<small>all skill levels</small></span>
+                        </div>
                     </div>
-                    <div class="hack-highlight">
-                        <span class="hack-highlight-label">Team Size</span>
-                        <span class="hack-highlight-value">1 – 4<small>solo or squad</small></span>
-                    </div>
-                    <div class="hack-highlight">
-                        <span class="hack-highlight-label">Perks</span>
-                        <span class="hack-highlight-value">Swag + Certs<small>MLH goodies &amp; more</small></span>
-                    </div>
-                    <div class="hack-highlight">
-                        <span class="hack-highlight-label">Who</span>
-                        <span class="hack-highlight-value">Students &amp; Pros<small>all skill levels</small></span>
-                    </div>
+                  </aside>
+                </div><!-- /.hack-hero-grid -->
+
+                <!-- Powered by — SSi Digital (main sponsor) + MLH -->
+                <div class="hack-poweredby">
+                    <span class="hack-poweredby-label">Powered by</span>
+                    <a href="https://online.ssidigital.in/" target="_blank" rel="noopener" class="hack-poweredby-logo is-primary" aria-label="SSi Digital Academy">
+                        <img src="/Assets/images/HackDays/ssi_digital.png" alt="SSi Digital Academy">
+                    </a>
+                    <span class="hack-poweredby-sep" aria-hidden="true"></span>
+                    <span class="hack-poweredby-label">In partnership with</span>
+                    <a href="https://mlh.io/" target="_blank" rel="noopener" class="hack-poweredby-logo is-secondary" aria-label="Major League Hacking">
+                        <img src="/Assets/images/HackDays/mlh-white.svg" alt="MLH — Major League Hacking">
+                    </a>
+                    <span class="hack-poweredby-tag">Flagship Hack Days</span>
                 </div>
             </div>
         </div>
@@ -162,7 +175,7 @@ extra_css: "/Assets/CSS/hack-days.css"
     </section>
 
     <!-- ==================== WHAT TO BUILD ==================== -->
-    <section class="content-section alt-bg">
+    <section class="content-section alt-bg" id="tracks">
         <div class="container">
             <div class="topics-header">
                 <span class="section-tag">Tracks &amp; Ideas</span>
@@ -292,42 +305,42 @@ extra_css: "/Assets/CSS/hack-days.css"
                         <p class="section-text" style="margin-bottom: 0;">Tentative timeline — exact slots will be confirmed closer to the event.</p>
                         <div class="schedule-timeline">
                             <div class="schedule-item">
-                                <div class="schedule-time">10:30–11:00</div>
+                                <div class="schedule-time">10:30–11:00 AM</div>
                                 <div class="schedule-content">
                                     <div class="schedule-title">Check-In &amp; Setup</div>
                                     <div class="schedule-meta">Registration · Teams settle in (teams are formed at sign-up)</div>
                                 </div>
                             </div>
                             <div class="schedule-item">
-                                <div class="schedule-time">11:00–11:30</div>
+                                <div class="schedule-time">11:00–11:30 AM</div>
                                 <div class="schedule-content">
                                     <div class="schedule-title">Kickoff &amp; Briefing</div>
                                     <div class="schedule-meta">Rules, tracks, judging criteria &amp; MLH welcome</div>
                                 </div>
                             </div>
                             <div class="schedule-item">
-                                <div class="schedule-time">11:30–4:00</div>
+                                <div class="schedule-time">11:30 AM–4:00 PM</div>
                                 <div class="schedule-content">
                                     <div class="schedule-title">Hacking 🚀</div>
                                     <div class="schedule-meta">Build time · Mentor check-ins · Lunch &amp; refreshments 🍕🍔</div>
                                 </div>
                             </div>
                             <div class="schedule-item">
-                                <div class="schedule-time">4:00–4:45</div>
+                                <div class="schedule-time">4:00–4:45 PM</div>
                                 <div class="schedule-content">
                                     <div class="schedule-title">Project Demos</div>
                                     <div class="schedule-meta">Teams present to judges &amp; the community</div>
                                 </div>
                             </div>
                             <div class="schedule-item">
-                                <div class="schedule-time">4:45–5:15</div>
+                                <div class="schedule-time">4:45–5:15 PM</div>
                                 <div class="schedule-content">
                                     <div class="schedule-title">Judging &amp; Results</div>
                                     <div class="schedule-meta">Winners announced · Swag &amp; certificates</div>
                                 </div>
                             </div>
                             <div class="schedule-item">
-                                <div class="schedule-time">5:15–5:30</div>
+                                <div class="schedule-time">5:15–5:30 PM</div>
                                 <div class="schedule-content">
                                     <div class="schedule-title">Wrap-Up &amp; Networking</div>
                                     <div class="schedule-meta">Group photo · Connect · Head home</div>
@@ -442,15 +455,15 @@ extra_css: "/Assets/CSS/hack-days.css"
                 <div style="flex: 1 1 280px;">
                     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-sm);">
                         <h3 style="margin: 0;">SSi Digital Academy</h3>
-                        <span class="event-status upcoming" style="font-size: 0.7rem; padding: 2px 12px;">Official Sponsor</span>
-                        <span class="event-status completed" style="font-size: 0.7rem; padding: 2px 12px;">Venue Partner</span>
+                        <span class="hack-role-chip is-sponsor">Official Sponsor</span>
+                        <span class="hack-role-chip">Venue Partner</span>
                     </div>
                     <p style="color: var(--color-gray-400); margin-bottom: var(--space-md);">
                         SSi Digital Academy — a leading Indore institute for full-stack, data analytics, and programming
                         courses — is the official sponsor and host venue for PyData Indore Hack Days, providing the space
                         and support that make the day possible.
                     </p>
-                    <a href="https://online.ssidigital.in/" target="_blank" rel="noopener" rel="noopener noreferrer" class="link-arrow" style="display: inline-flex;">
+                    <a href="https://online.ssidigital.in/" target="_blank" rel="noopener noreferrer" class="link-arrow" style="display: inline-flex;">
                         Visit SSi Digital
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -459,23 +472,29 @@ extra_css: "/Assets/CSS/hack-days.css"
                 </div>
             </div>
 
-            <!-- Partner badges -->
-            <div class="partners-grid" style="margin-top: var(--space-2xl);">
-                <div class="partner-item">
-                    <div class="partner-logo-box partner-logo-box-hd">
-                        <a href="https://online.ssidigital.in/" target="_blank" rel="noopener">
-                            <img src="/Assets/images/HackDays/ssi_digital.png" alt="SSi Digital Academy">
-                        </a>
-                    </div>
-                    <span class="partner-role-label">Official Sponsor &amp; Venue</span>
+            <!-- Partner spotlight — MLH -->
+            <div class="sponsor-spotlight sponsor-spotlight-partner">
+                <div style="flex: 0 0 auto;">
+                    <a href="https://mlh.io/" target="_blank" rel="noopener" class="sponsor-spotlight-logo" aria-label="Major League Hacking">
+                        <img src="/Assets/images/HackDays/mlh-white.svg" alt="MLH — Major League Hacking">
+                    </a>
                 </div>
-                <div class="partner-item">
-                    <div class="partner-logo-box partner-logo-box-hd">
-                        <a href="https://mlh.io/" target="_blank" rel="noopener">
-                            <img src="/Assets/images/HackDays/mlh-white.svg" alt="MLH — Major League Hacking">
-                        </a>
+                <div style="flex: 1 1 280px;">
+                    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-sm);">
+                        <h3 style="margin: 0;">Major League Hacking</h3>
+                        <span class="hack-role-chip">Hackathon League Partner</span>
                     </div>
-                    <span class="partner-role-label">Hack Days Program</span>
+                    <p style="color: var(--color-gray-400); margin-bottom: var(--space-md);">
+                        Major League Hacking (MLH) is the official student hackathon league, powering thousands of events
+                        worldwide. PyData Indore Hack Days runs as part of MLH's Hack Days program — bringing global
+                        structure, recognition, and swag to our local event.
+                    </p>
+                    <a href="https://mlh.io/" target="_blank" rel="noopener noreferrer" class="link-arrow" style="display: inline-flex;">
+                        Visit MLH
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
@@ -511,7 +530,7 @@ extra_css: "/Assets/CSS/hack-days.css"
                 </details>
                 <details class="faq-item">
                     <summary>Is there a fixed theme?</summary>
-                    <div class="faq-answer">The theme is open — build anything powered by Python or data. Check the <a href="#" onclick="document.querySelector('.track-grid').scrollIntoView({behavior:'smooth'});return false;">Tracks &amp; Ideas</a> section for inspiration.</div>
+                    <div class="faq-answer">The theme is open — build anything powered by Python or data. Check the <a href="#tracks">Tracks &amp; Ideas</a> section for inspiration.</div>
                 </details>
                 <details class="faq-item">
                     <summary>Can I use existing code or AI tools?</summary>
@@ -550,7 +569,8 @@ extra_css: "/Assets/CSS/hack-days.css"
     (function () {
         var el = document.getElementById('typing-headline');
         if (!el) return;
-        var text = 'One day. One prototype. Build something real with Python & data.';
+        var text = el.textContent.trim() || 'One day. One prototype. Build something real with Python & data.';
+        el.textContent = ''; // clear the no-JS fallback, then type it in
         var i = 0;
         function type() {
             if (i < text.length) {

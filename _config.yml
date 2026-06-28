@@ -17,6 +17,16 @@ defaults:
       image: /Assets/images/pydata_banner_logo.jpeg     # default social-share image
 
 # ============================================================
+#  Local dev server (jekyll serve / WEBrick) — never cache assets
+#  so edits always show up without a hard refresh. No effect on
+#  the production GitHub Pages build.
+# ============================================================
+webrick:
+  headers:
+    Cache-Control: "no-store, no-cache, must-revalidate, max-age=0"
+    Pragma: "no-cache"
+
+# ============================================================
 #  Build settings
 # ============================================================
 # Files Jekyll should NOT copy into the built site.

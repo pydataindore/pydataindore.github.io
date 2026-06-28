@@ -27,13 +27,50 @@
     margin-bottom: var(--space-2xl);
 }
 
+/* Two-column hero intro — text left, quick-facts right */
+.hack-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: var(--space-3xl);
+    align-items: start;
+    margin-top: var(--space-xl);
+}
+.hack-hero-main { min-width: 0; }
+.hack-hero-aside { min-width: 0; }
+/* Quick-facts stack vertically alongside the text on desktop */
+.hack-hero-aside .hack-highlights {
+    grid-template-columns: 1fr;
+    margin-top: 0;
+    gap: var(--space-md);
+}
+
 /* "Powered by" sponsor strip in hero — transparent logos on dark */
 .hack-poweredby {
     display: flex;
     align-items: center;
     gap: var(--space-lg);
     flex-wrap: wrap;
-    margin: var(--space-xl) 0 var(--space-lg);
+    margin: var(--space-2xl) 0 var(--space-lg);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--color-gray-800);
+}
+.hack-poweredby-sep {
+    width: 1px;
+    align-self: stretch;
+    min-height: 28px;
+    background: var(--color-gray-800);
+}
+.hack-poweredby-tag {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--color-primary);
+    padding: 3px 10px;
+    border: 1px solid var(--border-lime);
+    border-radius: 999px;
+    white-space: nowrap;
 }
 .hack-poweredby-label {
     font-family: var(--font-mono);
@@ -199,6 +236,26 @@
     margin: 0;
 }
 
+/* Neutral role chips for sponsor/partner labels (no status semantics) */
+.hack-role-chip {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 3px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--color-gray-800);
+    color: var(--color-gray-300);
+    background: var(--color-dark-soft);
+}
+.hack-role-chip.is-sponsor {
+    border-color: var(--border-lime);
+    color: var(--color-primary);
+}
+
 /* Sponsor spotlight */
 .sponsor-spotlight {
     display: flex;
@@ -265,11 +322,17 @@
 .faq-answer a { color: var(--color-primary); text-decoration: none; }
 
 @media (max-width: 900px) {
+    .hack-hero-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
     .hack-highlights { grid-template-columns: repeat(2, 1fr); }
+    /* aside is full-width when stacked — show facts 2-up */
+    .hack-hero-aside .hack-highlights { grid-template-columns: repeat(2, 1fr); }
     .track-grid, .criteria-grid { grid-template-columns: 1fr 1fr; }
     .sponsor-spotlight { padding: var(--space-xl); }
 }
 @media (max-width: 600px) {
-    .hack-highlights { grid-template-columns: 1fr 1fr; }
     .track-grid, .criteria-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 400px) {
+    .hack-highlights,
+    .hack-hero-aside .hack-highlights { grid-template-columns: 1fr; }
 }
