@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include analytics.html %}
+
     <link rel="icon" type="image/png" href="/Assets/images/Logos/PyData_Indore/PyData_Indore_512x341_transparent.png">
     <link rel="apple-touch-icon" href="/Assets/images/Logos/PyData_Indore/PyData_Indore_512x341_transparent.png">
 
@@ -43,6 +46,8 @@
     {{ content }}
 
     {% include footer.html %}
+
+    {% include cookie-consent.html %}
 
     <script src="/Assets/JavaScript/main.js?v={{ cache_bust }}"></script>
     {% if page.extra_js %}<script src="{{ page.extra_js }}?v={{ cache_bust }}"></script>{% endif %}

@@ -5,6 +5,11 @@ title: "PyData Indore | Data Science Community"
 description: "Central India's community for data scientists, ML practitioners, and open-source enthusiasts. Part of the global PyData network."
 url: "https://indore.pydata.org"
 
+# Google Analytics 4 Measurement ID (e.g. G-XXXXXXXXXX).
+# Leave blank to disable. Only loads on the production build, so local
+# `jekyll serve` runs never send hits to GA.
+google_analytics: "G-8P213HK8P9"
+
 # ============================================================
 #  Defaults — applied to every page so each page's front
 #  matter only needs the bits that are unique to it.

@@ -1,0 +1,44 @@
+{%- comment -%}
+  Cookie consent banner — paired with _includes/analytics.html (Consent Mode v2).
+  Renders whenever a GA Measurement ID is configured (any environment, so it can
+  be previewed locally). The visitor's choice is stored in localStorage and, on
+  accept, flips GA's analytics_storage consent to 'granted' at runtime.
+{%- endcomment -%}
+{%- if site.google_analytics != "" -%}
+<div id="cookie-consent" class="cookie-consent" role="dialog" aria-live="polite"
+     aria-label="Cookie consent" hidden>
+  <p class="cookie-consent__text">
+    We use cookies for anonymous analytics to understand how the community uses
+    this site. No tracking happens until you accept. See our
+    <a href="/privacy-policy/">Privacy Policy</a> for details.
+  </p>
+  <div class="cookie-consent__actions">
+    <button type="button" class="btn btn-secondary" data-consent-reject>Decline</button>
+    <button type="button" class="btn btn-primary" data-consent-accept>Accept</button>
+  </div>
+</div>
+<script>
+  (function () {
+    var KEY = 'pydata-cookie-consent';
+    var banner = document.getElementById('cookie-consent');
+    if (!banner) return;
+
+    function decide(value) {
+      try { localStorage.setItem(KEY, value); } catch (e) {}
+      if (value === 'granted' && typeof gtag === 'function') {
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+      }
+      banner.hidden = true;
+    }
+
+    var stored;
+    try { stored = localStorage.getItem(KEY); } catch (e) {}
+    if (stored !== 'granted' && stored !== 'denied') {
+      banner.hidden = false;
+    }
+
+    banner.querySelector('[data-consent-accept]').addEventListener('click', function () { decide('granted'); });
+    banner.querySelector('[data-consent-reject]').addEventListener('click', function () { decide('denied'); });
+  })();
+</script>
+{%- endif -%}
