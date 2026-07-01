@@ -1,0 +1,21 @@
+<!-- Moving announcement ticker — promotes the upcoming Hack Days mini hackathon.
+     The whole bar is a link to /hack-days/. The track is duplicated (two identical
+     halves) so the CSS ticker (translateX 0 → -50%) loops seamlessly. -->
+<div class="announcement-bar" role="region" aria-label="Site announcement">
+    <a href="/hack-days/" class="announcement-track"
+       aria-label="PyData Indore Hack Days — Mini Hackathon on Saturday 18 July 2026 at SSi Digital, Indore. View details and register.">
+        {%- comment -%} Two identical halves × repeated message → seamless, gap-free loop on wide screens {%- endcomment -%}
+        {%- for half in (1..2) -%}
+        {%- for i in (1..4) -%}
+        <span class="announcement-item" aria-hidden="{% if half == 1 and i == 1 %}false{% else %}true{% endif %}">
+            <span class="announcement-dot"></span>
+            🚀 PyData Indore Hack&nbsp;Days
+            <span class="announcement-sep">·</span> Mini Hackathon
+            <span class="announcement-sep">·</span> Sat 18 July 2026
+            <span class="announcement-sep">·</span> SSi Digital, Indore
+            <span class="announcement-sep">·</span> Register now →
+        </span>
+        {%- endfor -%}
+        {%- endfor -%}
+    </a>
+</div>

@@ -38,8 +38,10 @@
     {%- comment -%} Optional per-page stylesheet, e.g. hack-days.html sets:  extra_css: /Assets/CSS/hack-days.css {%- endcomment -%}
     {% if page.extra_css %}<link rel="stylesheet" href="{{ page.extra_css }}?v={{ cache_bust }}">{% endif %}
 </head>
-<body>
+<body class="has-announcement">
     <div class="grain"></div>
+
+    {% include announcement.html %}
 
     {% include nav.html %}
 
