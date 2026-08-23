@@ -121,7 +121,7 @@ pydataindore.github.io/
 ├── _includes/
 │   ├── nav.html                  # Navigation (edit links here, once)
 │   ├── footer.html               # Footer
-│   ├── announcement.html         # Site-wide moving announcement ticker
+│   ├── announcement.html         # Site-wide moving announcement ticker (currently off — see _layouts/default.html)
 │   ├── cookie-consent.html       # Consent banner (gates analytics)
 │   └── analytics.html            # GA4 — production builds only
 │

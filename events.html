@@ -32,7 +32,27 @@ active: "events"
                 <h2>Upcoming Events</h2>
                 <div class="events-list">
 
-                    <!-- IKIGAI 2026 — external event, PyData Indore is a Community Partner -->
+                    <!-- No upcoming events right now — empty state -->
+                    <div class="content-card" style="text-align: center;">
+                        <h3 style="justify-content: center; margin-bottom: var(--space-sm);">Nothing on the calendar — yet</h3>
+                        <p style="color: var(--color-gray-400); margin-bottom: var(--space-lg);">
+                            IKIGAI 2026 just wrapped and we're planning what's next. Join us on Meetup to hear about the next
+                            one first — or propose an event you'd like to see.
+                        </p>
+                        <div style="display: flex; gap: var(--space-md); flex-wrap: wrap; justify-content: center;">
+                            <a href="https://www.meetup.com/pydata-indore/" target="_blank" rel="noopener" class="btn btn-primary">Join on Meetup</a>
+                            <a href="#propose" class="btn btn-secondary">Propose an Event</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Past Events -->
+            <div class="past-events-section">
+                <h2>Past Events</h2>
+                <div class="events-list">
+                    <!-- IKIGAI 2026 — 21–23 Aug 2026, AITR Campus — external event, PyData Indore was a Community Partner -->
                     <div class="event-card-full hackathon-highlight" data-type="hackathon">
                         <div class="event-date">
                             <span class="date-day">21</span>
@@ -42,14 +62,14 @@ active: "events"
                         <div class="event-content">
                             <div style="display: flex; align-items: center; gap: var(--space-md); flex-wrap: wrap; margin-bottom: var(--space-sm);">
                                 <span class="event-type">National Hackathon</span>
-                                <span class="event-status upcoming">Upcoming</span>
+                                <span class="event-status completed">Completed</span>
                                 <span class="event-partner-badge">Community Partner</span>
                             </div>
                             <h3 class="event-title" style="font-size: 1.4rem; margin-bottom: var(--space-sm);">IKIGAI 2026</h3>
                             <p class="event-description" style="-webkit-line-clamp: 4;">
                                 <strong style="color: var(--color-gray-300);">A 36-hour National Level Hackathon — Intelligent Knowledge Integration for Global AI Innovation.</strong>
                                 Organised by the Department of CSIT &amp; CSE(CY), Acropolis Institute of Technology &amp; Research (AITR), Indore,
-                                in collaboration with IIT Ropar. PyData Indore is a Community Partner — we're helping spread the word, not running the event.
+                                in collaboration with IIT Ropar. PyData Indore was a Community Partner — we helped spread the word; the IKIGAI team ran the event.
                             </p>
                             <div class="event-stats-row">
                                 <div class="event-stat-item">
@@ -85,32 +105,15 @@ active: "events"
                             </div>
                         </div>
                         <div style="display: flex; flex-direction: column; gap: var(--space-md); align-items: flex-end;">
-                            <a href="https://tinyurl.com/IKIGAI-2026-Hackathon" target="_blank" rel="noopener" class="btn btn-primary" style="white-space: nowrap;">
-                                Register
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                    <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
-                                </svg>
-                            </a>
                             <a href="/ikigai-2026/" class="btn btn-secondary" style="white-space: nowrap;">
                                 View Details
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M5 12h14M12 5l7 7-7 7"/>
                                 </svg>
                             </a>
-                            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--color-accent); white-space: nowrap;">
-                                Round 1 closes 26 Jul 2026
-                            </span>
                         </div>
                     </div>
 
-                </div>
-            </div>
-
-            <!-- Past Events -->
-            <div class="past-events-section">
-                <h2>Past Events</h2>
-                <div class="events-list">
                     <!-- PyData Indore Hack Days — 18 Jul 2026, SSi Digital -->
                     <div class="event-card-full hackathon-highlight" data-type="hackathon">
                         <div class="event-date">

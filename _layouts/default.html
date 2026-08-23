@@ -38,10 +38,15 @@
     {%- comment -%} Optional per-page stylesheet, e.g. hack-days.html sets:  extra_css: /Assets/CSS/hack-days.css {%- endcomment -%}
     {% if page.extra_css %}<link rel="stylesheet" href="{{ page.extra_css }}?v={{ cache_bust }}">{% endif %}
 </head>
-<body class="has-announcement">
+<body>
     <div class="grain"></div>
 
-    {% include announcement.html %}
+    {%- comment -%}
+        Site-wide announcement ticker is currently OFF (nothing to promote).
+        To bring it back: update _includes/announcement.html, add
+        {% include announcement.html %} here, and put class="has-announcement"
+        back on <body> so the fixed nav is offset below the bar.
+    {%- endcomment -%}
 
     {% include nav.html %}
 
