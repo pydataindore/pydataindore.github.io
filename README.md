@@ -104,23 +104,48 @@ Deployment is automatic — there is no build step to run and no GitHub Actions 
 Things to know:
 
 - The custom domain comes from the **`CNAME`** file at the repo root. Deleting or editing it breaks `indore.pydata.org` — leave it alone.
-- Only plugins on the [GitHub Pages allowlist](https://pages.github.com/versions/) will run. The `Gemfile` pins the `github-pages` gem so your local build matches production; keep it that way rather than adding arbitrary plugins.
+- Only plugins on the [GitHub Pages allowlist](https://pages.github.com/versions/) will run. The `Gemfile` pins the `github-pages` gem so your local build matches production; add only allowlisted plugins (the site enables `jekyll-sitemap` in `_config.yml`), never arbitrary ones.
 - **Never commit `_site/`.** It is build output and is gitignored.
 - If a deploy looks wrong, check the repo's *Actions* tab — the `pages-build-deployment` run reports Jekyll build failures there.
+
+## 🔍 SEO & Social Previews
+
+The `<head>` in `_layouts/default.html` builds SEO and social tags for every page from its front matter, so individual pages rarely need to touch them.
+
+- **Sitemap** — generated automatically by the `jekyll-sitemap` plugin at build time (`/sitemap.xml`). Nothing to maintain; any page with front matter is included. Add `sitemap: false` to a page's front matter to exclude it.
+- **`robots.txt`** — at the repo root, allows all crawlers and points them at the sitemap.
+- **Canonical + Open Graph + Twitter tags** — emitted per page from `title`, `description`, and `image`. `og:url` and the canonical link use the page's pretty URL.
+- **Structured data** — `_includes/structured-data.html` adds sitewide `Organization` + `WebSite` JSON-LD. Event detail pages are good candidates for adding their own `Event` schema on top.
+- **Social preview image** — defaults to the PyData Indore logo card. Override per page with `image:` in front matter, and use a raster (JPG/PNG) — **SVG is ignored by Facebook, LinkedIn, WhatsApp, and X.**
+
+### Brand logo & favicons
+
+The logo lives at `Assets/images/Logos/PyData_Indore/`:
+
+| File | Used for |
+| --- | --- |
+| `PyData-Indore.svg` | Nav logo, share-page avatar, and the modern SVG favicon |
+| `PyData-Indore-og.png` (1200×630) | Default social-share preview (`_config.yml`) |
+| `PyData-Indore-icon-512.png` | PNG favicon fallback + schema.org logo |
+| `PyData-Indore-icon-180.png` | `apple-touch-icon` |
+
+The three PNGs are rasterized from the SVG. To regenerate them after a logo change, render the SVG with a headless browser (e.g. Playwright/Chromium) and recompose onto the target canvases with Pillow — no `cairosvg` or ImageMagick required.
 
 ## 📁 Project Structure
 
 ```
 pydataindore.github.io/
-├── _config.yml                   # Site-wide settings, defaults, build config
+├── _config.yml                   # Site-wide settings, defaults, plugins, build config
 ├── Gemfile                       # Pins the github-pages gem (matches production)
 ├── CNAME                         # Custom domain — do not remove
+├── robots.txt                    # Allows crawlers, points to the sitemap
 │
 ├── _layouts/
-│   └── default.html              # The page shell: <head>, meta/OG tags, scripts
+│   └── default.html              # The page shell: <head>, meta/OG tags, canonical, favicons, scripts
 ├── _includes/
 │   ├── nav.html                  # Navigation (edit links here, once)
 │   ├── footer.html               # Footer
+│   ├── structured-data.html      # JSON-LD (Organization + WebSite) for SEO
 │   ├── announcement.html         # Site-wide moving announcement ticker (currently off — see _layouts/default.html)
 │   ├── cookie-consent.html       # Consent banner (gates analytics)
 │   └── analytics.html            # GA4 — production builds only
@@ -149,12 +174,14 @@ pydataindore.github.io/
 │   ├── JavaScript/
 │   │   └── main.js               # Nav, theme switcher, carousels, forms
 │   └── images/
-│       ├── Logos/                # Partner & sponsor logos
+│       ├── Logos/
+│       │   ├── PyData_Indore/    # Brand logo: PyData-Indore.svg + og/icon rasters
+│       │   └── ...               # Partner & sponsor logos
 │       ├── Team/                 # Team photos
 │       ├── Meetup1/ HackDays/ IKIGAI/   # Per-event assets
 │       └── ...
 │
-├── _site/                        # Build output — generated, gitignored
+├── _site/                        # Build output (incl. generated sitemap.xml) — gitignored
 └── README.md                     # This file
 ```
 
@@ -234,7 +261,7 @@ Front matter reference:
 | `description` | yes | Used for SEO and link previews. |
 | `active` | yes | One of `home`, `about`, `events`, `team`, `coc`, `sponsors`. Event pages use `events`. |
 | `extra_css` | no | Only for genuinely page-specific styling; shared styles belong in `style.css`. |
-| `image` | no | Defaults to the PyData banner (set in `_config.yml`). |
+| `image` | no | Social-preview image. Must be a raster (JPG/PNG) — social platforms ignore SVG. Defaults to the PyData Indore logo card (`PyData-Indore-og.png`, set in `_config.yml`). |
 
 The `layout` is applied automatically by the defaults in `_config.yml` — you do not need to declare it.
 

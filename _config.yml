@@ -19,7 +19,7 @@ defaults:
       path: ""           # everything
     values:
       layout: default                                   # use _layouts/default.html
-      image: /Assets/images/pydata_banner_logo.jpeg     # default social-share image
+      image: /Assets/images/Logos/PyData_Indore/PyData-Indore-og.png   # default social-share preview (new PyData Indore logo)
 
 # ============================================================
 #  Local dev server (jekyll serve / WEBrick) — never cache assets
@@ -32,11 +32,18 @@ webrick:
     Pragma: "no-cache"
 
 # ============================================================
+#  Plugins (all on the GitHub Pages allow-list)
+# ============================================================
+plugins:
+  - jekyll-sitemap        # auto-generates /sitemap.xml for search engines
+
+# ============================================================
 #  Build settings
 # ============================================================
 # Files Jekyll should NOT copy into the built site.
 exclude:
   - README.md
+  - FORM_SETUP.md      # internal setup notes — keep out of the public site & sitemap
   - Gemfile
   - Gemfile.lock
   - vendor

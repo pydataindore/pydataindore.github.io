@@ -1,0 +1,43 @@
+{%- comment -%}
+  Site-wide Organization + WebSite schema (JSON-LD).
+  Helps Google build a knowledge panel and understand the community.
+  Per-event pages can add their own Event schema on top of this.
+{%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "{{ site.url }}/#organization",
+      "name": "PyData Indore",
+      "url": "{{ site.url }}/",
+      "logo": "{{ site.url }}/Assets/images/Logos/PyData_Indore/PyData-Indore-icon-512.png",
+      "description": "{{ site.description }}",
+      "email": "indore@pydata.org",
+      "areaServed": "Indore, Madhya Pradesh, India",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "NumFOCUS",
+        "url": "https://numfocus.org/"
+      },
+      "sameAs": [
+        "https://www.meetup.com/pydata-indore/",
+        "https://www.linkedin.com/company/pydata-indore",
+        "https://www.instagram.com/pydata.indore/",
+        "https://github.com/pydataindore",
+        "https://chat.whatsapp.com/HP25OH3i1MV4kAqZIcH3Lq",
+        "https://linktr.ee/pydata_indore"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}/",
+      "name": "PyData Indore",
+      "description": "{{ site.description }}",
+      "publisher": { "@id": "{{ site.url }}/#organization" }
+    }
+  ]
+}
+</script>

@@ -16,6 +16,12 @@
     --color-accent-light: #f0abfc;
     --color-accent-dark: #d946ef;
 
+    /* Official PyData Indore logo colors — FIXED, never overridden by a theme.
+       Sourced from PyData-Indore.svg so the wordmark matches the logo art. */
+    --brand-py: #489bb7;    /* "Py"    — logo blue   */
+    --brand-data: #ec9041;  /* "Data"  — logo orange */
+    --brand-city: #667b83;  /* "Indore" — logo slate */
+
     /* Text on primary colored backgrounds (changes per theme) */
     --color-on-primary: #000000;
 
@@ -462,16 +468,16 @@ body.has-announcement .nav {
 }
 
 .logo-py {
-    color: var(--color-accent);
+    color: var(--brand-py);
 }
 
 .logo-data {
-    color: var(--color-primary);
+    color: var(--brand-data);
 }
 
 .logo-city {
     font-size: 0.875rem;
-    color: var(--color-gray-500);
+    color: var(--brand-city);
     margin-left: var(--space-xs);
 }
 

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://indore.pydata.org/sitemap.xml

@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080808">
 
     {% include analytics.html %}
 
-    <link rel="icon" type="image/png" href="/Assets/images/Logos/PyData_Indore/PyData_Indore_512x341_transparent.png">
-    <link rel="apple-touch-icon" href="/Assets/images/Logos/PyData_Indore/PyData_Indore_512x341_transparent.png">
+    <link rel="icon" type="image/svg+xml" href="/Assets/images/Logos/PyData_Indore/PyData-Indore.svg">
+    <link rel="icon" type="image/png" sizes="512x512" href="/Assets/images/Logos/PyData_Indore/PyData-Indore-icon-512.png">
+    <link rel="apple-touch-icon" href="/Assets/images/Logos/PyData_Indore/PyData-Indore-icon-180.png">
 
     {%- comment -%} Per-page values fall back to site-wide defaults {%- endcomment -%}
     {%- assign page_title = page.title | default: site.title -%}
@@ -16,17 +18,23 @@
 
     <title>{{ page_title }}</title>
     <meta name="description" content="{{ page_desc }}">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
     <!-- Open Graph / Social preview -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PyData Indore">
+    <meta property="og:locale" content="en_IN">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
     <meta property="og:title" content="{{ page_title }}">
     <meta property="og:description" content="{{ page_desc }}">
     <meta property="og:image" content="{{ page_image }}">
+    <meta property="og:image:alt" content="{{ page_title }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ page_title }}">
     <meta name="twitter:description" content="{{ page_desc }}">
     <meta name="twitter:image" content="{{ page_image }}">
+
+    {% include structured-data.html %}
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
