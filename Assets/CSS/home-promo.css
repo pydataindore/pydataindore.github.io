@@ -1,0 +1,108 @@
+.home-promo {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: min(580px, calc(100% - 32px));
+    max-height: calc(100vh - 32px);
+    max-height: calc(100dvh - 32px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    overflow-wrap: anywhere;
+    padding: clamp(24px, 5vw, 44px);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-xl);
+    background: var(--color-surface);
+    color: var(--color-gray-200);
+    box-shadow: var(--shadow-xl);
+}
+
+.home-promo::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+html.home-promo-open {
+    overflow: hidden;
+}
+
+.home-promo-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--color-gray-200);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.home-promo-close:hover {
+    background: var(--color-surface-3);
+}
+
+.home-promo :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
+}
+
+.home-promo-eyebrow {
+    padding-right: 24px;
+    margin-bottom: var(--space-lg);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-gray-300);
+}
+
+.home-promo h2 {
+    font-size: clamp(1.8rem, 6vw, 2.6rem);
+    line-height: 1.2;
+    color: var(--color-white);
+}
+
+.home-promo h2 span {
+    color: var(--color-primary);
+}
+
+.home-promo-date {
+    margin: var(--space-lg) 0 var(--space-md);
+    font-weight: 700;
+}
+
+.home-promo-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+}
+
+.home-promo-actions .btn {
+    flex: 1 1 100%;
+    min-width: 0;
+    min-height: 44px;
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
+}
+
+@media (max-width: 360px) {
+    .home-promo {
+        padding: 24px 16px;
+    }
+
+    .home-promo-actions .btn {
+        padding-inline: 16px;
+    }
+}
+
+.home-promo-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}

@@ -29,6 +29,7 @@
         gtag('consent', 'update', { analytics_storage: 'granted' });
       }
       banner.hidden = true;
+      window.dispatchEvent(new CustomEvent('pydata:consent-decided'));
     }
 
     var stored;

@@ -369,6 +369,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - **JavaScript** is centralized in `Assets/JavaScript/main.js` — vanilla, no build step
 - **Optimize images before committing.** Resize to roughly 2× their displayed width and export as JPEG/WebP; multi-MB files slow the site down noticeably
 - **Analytics only run in production** and only after consent, so local development never sends hits
+- **Hacktoberfest popup clicks:** `hacktoberfest_register_click` counts clicks to MLH and `hacktoberfest_details_click` counts clicks to the event page. Both include `event_id: hacktoberfest_2026`, `placement: home_popup`, and `link_url`. These measure clicks, not completed registrations. New visitors see the cookie banner first, then the popup after either Accept or Decline; only accepted analytics consent enables click tracking. Visitors with an existing cookie choice can see the popup immediately. The popup appears only once per browser, with its seen flag saved when shown (not while waiting for consent). Clearing `pydata-hacktoberfest-2026-promo-seen` in browser local storage lets you preview the popup again before its expiry. Events use the existing production GA4 property; local builds do not send them.
 - **Never commit `_site/`** — it is generated output
 
 ## 🙏 Acknowledgments

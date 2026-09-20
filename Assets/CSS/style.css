@@ -1195,7 +1195,7 @@ section {
     display: flex;
     gap: var(--space-lg);
     font-size: 0.78rem;
-    color: var(--color-gray-600);
+    color: var(--color-gray-400);
     flex-wrap: wrap;
 }
 
@@ -1706,7 +1706,7 @@ section {
 }
 
 .footer-brand p {
-    color: var(--color-gray-600);
+    color: var(--color-gray-200);
     font-size: 0.875rem;
     margin: var(--space-lg) 0;
     max-width: 300px;
@@ -1749,6 +1749,14 @@ section {
     box-shadow: 0 0 15px rgba(163, 230, 53, 0.2);
 }
 
+.footer .social-links a {
+    color: var(--color-gray-200);
+}
+
+.footer .social-links a:hover {
+    color: var(--color-primary);
+}
+
 .speaker-info .speaker-social {
     margin-top: var(--space-md);
 }
@@ -1763,7 +1771,7 @@ section {
     text-transform: uppercase;
     letter-spacing: 0.15em;
     margin-bottom: var(--space-lg);
-    color: var(--color-gray-400);
+    color: var(--color-gray-100);
     font-family: var(--font-mono);
 }
 
@@ -1776,7 +1784,7 @@ section {
 }
 
 .footer-links a {
-    color: var(--color-gray-600);
+    color: var(--color-gray-200);
     font-size: 0.875rem;
     transition: color var(--transition-fast);
 }
@@ -1792,7 +1800,7 @@ section {
 }
 
 .footer-bottom p {
-    color: var(--color-gray-700);
+    color: var(--color-gray-300);
     font-size: 0.8rem;
 }
 
@@ -2727,7 +2735,7 @@ section {
 
 .event-stat-label {
     font-size: 0.7rem;
-    color: var(--color-gray-600);
+    color: var(--color-gray-500);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-family: var(--font-mono);
@@ -3651,6 +3659,10 @@ section {
        bottom-right corner and the switcher was intercepting the taps. */
     z-index: 10001;
     max-width: 420px;
+    max-height: calc(100vh - 48px);
+    max-height: calc(100dvh - 48px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
@@ -3683,8 +3695,15 @@ section {
 
 .cookie-consent__actions {
     display: flex;
+    flex-wrap: wrap;
     gap: var(--space-sm);
     justify-content: flex-end;
+}
+
+.cookie-consent__actions .btn {
+    min-height: 44px;
+    white-space: normal;
+    justify-content: center;
 }
 
 @keyframes cookie-rise {

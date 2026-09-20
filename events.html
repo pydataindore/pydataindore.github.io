@@ -32,16 +32,71 @@ active: "events"
                 <h2>Upcoming Events</h2>
                 <div class="events-list">
 
-                    <!-- No upcoming events right now — empty state -->
-                    <div class="content-card" style="text-align: center;">
-                        <h3 style="justify-content: center; margin-bottom: var(--space-sm);">Nothing on the calendar — yet</h3>
-                        <p style="color: var(--color-gray-400); margin-bottom: var(--space-lg);">
-                            IKIGAI 2026 just wrapped and we're planning what's next. Join us on Meetup to hear about the next
-                            one first — or propose an event you'd like to see.
-                        </p>
-                        <div style="display: flex; gap: var(--space-md); flex-wrap: wrap; justify-content: center;">
-                            <a href="https://www.meetup.com/pydata-indore/" target="_blank" rel="noopener" class="btn btn-primary">Join on Meetup</a>
-                            <a href="#propose" class="btn btn-secondary">Propose an Event</a>
+                    <!-- Hacktoberfest Hack Day — 4 Oct 2026, WalkOver (LIC Tower) — MLH Hack Days, PyData Indore event -->
+                    <div class="event-card-full hackathon-highlight" data-type="hackathon">
+                        <div class="event-date">
+                            <span class="date-day">04</span>
+                            <span class="date-month">Oct</span>
+                            <span class="date-month" style="font-size:0.6rem; color: var(--color-gray-600);">2026</span>
+                        </div>
+                        <div class="event-content">
+                            <div style="display: flex; align-items: center; gap: var(--space-md); flex-wrap: wrap; margin-bottom: var(--space-sm);">
+                                <span class="event-type">Mini Hackathon</span>
+                                <span class="event-status upcoming">Upcoming</span>
+                                <span class="event-partner-badge">MLH Hack Days</span>
+                            </div>
+                            <h3 class="event-title" style="font-size: 1.4rem; margin-bottom: var(--space-sm);">Hacktoberfest Hack Day — Indore x PyData Indore</h3>
+                            <p class="event-description" style="-webkit-line-clamp: 4;">
+                                <strong style="color: var(--color-gray-300);">One day. One prototype. Build something real with Python &amp; data.</strong>
+                                A single-day, in-person mini hackathon powered by MLH Hack Days, riding the Hacktoberfest wave. Form a team of
+                                up to 4, pick a problem, and ship a working prototype by sundown — with on-site mentors from the PyData Indore community.
+                            </p>
+                            <div class="event-stats-row">
+                                <div class="event-stat-item">
+                                    <span class="event-stat-num">1</span>
+                                    <span class="event-stat-label">Day</span>
+                                </div>
+                                <div class="event-stat-item">
+                                    <span class="event-stat-num">1–4</span>
+                                    <span class="event-stat-label">Per Team</span>
+                                </div>
+                                <div class="event-stat-item">
+                                    <span class="event-stat-num">Free</span>
+                                    <span class="event-stat-label">Entry</span>
+                                </div>
+                            </div>
+                            <div class="event-meta" style="margin-top: var(--space-md);">
+                                <span>
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    WalkOver, LIC Tower, Indore, MP
+                                </span>
+                                <span>
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                        <line x1="16" y1="2" x2="16" y2="6"/>
+                                        <line x1="8" y1="2" x2="8" y2="6"/>
+                                        <line x1="3" y1="10" x2="21" y2="10"/>
+                                    </svg>
+                                    Sun, 4 Oct 2026 · 10:30 AM – 5:30 PM
+                                </span>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: var(--space-md); align-items: flex-end;">
+                            <a href="https://events.mlh.com/events/14931-hacktoberfest-hack-day-indore-x-pydata-indore" target="_blank" rel="noopener" class="btn btn-primary" style="white-space: nowrap;">
+                                Register on MLH
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                            <a href="/hacktoberfest/" class="btn btn-secondary" style="white-space: nowrap;">
+                                View Details
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
                         </div>
                     </div>
 
@@ -52,6 +107,64 @@ active: "events"
             <div class="past-events-section">
                 <h2>Past Events</h2>
                 <div class="events-list">
+                    <!-- Tech Unleash 4.0 — 19 Sep 2026, DAVV Auditorium — external event, PyData Indore was a Community Partner -->
+                    <div class="event-card-full hackathon-highlight" data-type="tech-fest">
+                        <div class="event-date">
+                            <span class="date-day">19</span>
+                            <span class="date-month">Sep</span>
+                            <span class="date-month" style="font-size:0.6rem; color: var(--color-gray-600);">2026</span>
+                        </div>
+                        <div class="event-content">
+                            <div style="display: flex; align-items: center; gap: var(--space-md); flex-wrap: wrap; margin-bottom: var(--space-sm);">
+                                <span class="event-type">Tech Fest</span>
+                                <span class="event-status completed">Completed</span>
+                                <span class="event-partner-badge">Community Partner</span>
+                            </div>
+                            <h3 class="event-title" style="font-size: 1.4rem; margin-bottom: var(--space-sm);">Tech Unleash 4.0</h3>
+                            <p class="event-description" style="-webkit-line-clamp: 4;">
+                                <strong style="color: var(--color-gray-300);">This isn't just an orientation — it's your launchpad to innovation.</strong>
+                                The flagship tech orientation of Google Developer Group on Campus, IET DAVV — a full day of talks on
+                                entrepreneurship, AI, cloud and communication, plus performances and arcade games. PyData Indore was a
+                                Community Partner — we helped spread the word; the GDGoC team ran the event.
+                            </p>
+                            <div class="event-meta" style="margin-top: var(--space-md);">
+                                <span>
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    DAVV Auditorium, Indore, MP
+                                </span>
+                                <span>
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                        <line x1="16" y1="2" x2="16" y2="6"/>
+                                        <line x1="8" y1="2" x2="8" y2="6"/>
+                                        <line x1="3" y1="10" x2="21" y2="10"/>
+                                    </svg>
+                                    19 Sep 2026
+                                </span>
+                                <span>
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="9" cy="7" r="4"/>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                    </svg>
+                                    Organised by GDGoC, IET DAVV
+                                </span>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: var(--space-md); align-items: flex-end;">
+                            <a href="/tech-unleash-4/" class="btn btn-secondary" style="white-space: nowrap;">
+                                View Details
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
                     <!-- IKIGAI 2026 — 21–23 Aug 2026, AITR Campus — external event, PyData Indore was a Community Partner -->
                     <div class="event-card-full hackathon-highlight" data-type="hackathon">
                         <div class="event-date">
