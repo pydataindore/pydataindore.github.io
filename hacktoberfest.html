@@ -48,11 +48,12 @@ extra_css: "/Assets/CSS/hack-days.css"
                         <h1>Hacktoberfest <span class="highlight">Hack Day</span></h1>
                     </div>
 
-                    <div class="hack-hero-sponsor">
+                    <!-- Powered by — IDFC FIRST Bank -->
+                    <div class="hack-hero-partner">
+                        <span class="hack-poweredby-label">Powered by</span>
                         <a href="https://www.idfcfirstbank.com/" target="_blank" rel="noopener"
-                            class="hack-hero-sponsor-logo" aria-label="IDFC FIRST Bank">
-                            <img src="/Assets/images/HackDays/IDFC-logo-website.svg" alt="IDFC FIRST Bank" width="235"
-                                height="83">
+                            class="hack-poweredby-logo is-primary" aria-label="IDFC FIRST Bank">
+                            <img src="/Assets/images/HackDays/IDFC-logo-website.svg" alt="IDFC FIRST Bank">
                         </a>
                     </div>
 
@@ -167,6 +168,10 @@ extra_css: "/Assets/CSS/hack-days.css"
                                     data</small></span>
                         </div>
                         <div class="hack-highlight">
+                            <span class="hack-highlight-label">Rewards</span>
+                            <span class="hack-highlight-value">$10,000+<small>$100+ per participant</small></span>
+                        </div>
+                        <div class="hack-highlight">
                             <span class="hack-highlight-label">Who</span>
                             <span class="hack-highlight-value">Students &amp; Pros<small>all skill levels</small></span>
                         </div>
@@ -204,8 +209,8 @@ extra_css: "/Assets/CSS/hack-days.css"
                     </div>
                     <div class="code-point"><span class="code-point-prefix">▸</span> Live demos &amp; community feedback
                     </div>
-                    <div class="code-point"><span class="code-point-prefix">▸</span> 1-month viaSocket subscription, MLH
-                        stickers &amp; certificates for all participants 🎁</div>
+                    <div class="code-point"><span class="code-point-prefix">▸</span> $100+ in rewards per
+                        participant — viaSocket subscription, MLH stickers, certificates &amp; more 🎁</div>
                 </div>
             </div>
             <div class="content-card">
@@ -401,6 +406,12 @@ extra_css: "/Assets/CSS/hack-days.css"
         <div class="topics-header"><span class="section-tag">Prizes &amp; Recognition</span>
             <h2 class="section-title">Build, Demo &amp; <span class="highlight">Celebrate</span></h2>
         </div>
+        <div class="hack-highlights" style="grid-template-columns: 1fr; max-width: 480px; margin: 0 auto var(--space-2xl);">
+            <div class="hack-highlight" style="text-align: center; border-color: var(--border-lime);">
+                <span class="hack-highlight-label">Total Reward Claims</span>
+                <span class="hack-highlight-value">$10,000+<small>via Hacktoberfest '26 sponsors · $100+ per participant</small></span>
+            </div>
+        </div>
         <div class="hack-prize-row">
             <div class="hack-prize-callout">
                 <span class="hack-prize-badge">Challenge Winner</span>
@@ -420,14 +431,15 @@ extra_css: "/Assets/CSS/hack-days.css"
             </div>
             <div class="hack-prize-callout">
                 <span class="hack-prize-badge">All Participants</span>
-                <h3>Something for Everyone</h3>
-                <p>Every participant receives a one-month viaSocket subscription, MLH stickers, and a participation
-                    certificate.</p>
-                <p class="hack-prize-reward">1 month of viaSocket + MLH stickers + certificate for all participants</p>
+                <h3>$100+ in Rewards for Everyone</h3>
+                <p>Every participant can claim over $100 in rewards from different Hacktoberfest '26 sponsors — including
+                    a 1-month viaSocket subscription, MLH stickers, and a participation certificate.</p>
+                <p class="hack-prize-reward">1-month viaSocket subscription + MLH stickers + certificate + Hacktoberfest sponsor credits</p>
             </div>
         </div>
-        <p class="submit-note"><strong>Prize availability note:</strong> Prizes may differ from the details listed on
-            the official MLH website, depending on what is received and available on the day of the event.</p>
+        <p class="submit-note"><strong>Prize availability note:</strong> Rewards are claimable via the Hacktoberfest '26
+            promotions page; each offer has its own eligibility and redemption details. Event-day prizes may differ from
+            those listed on the official MLH website, depending on availability.</p>
         <div class="content-card" style="margin-top: var(--space-xl);">
             <span class="section-tag">Add-ons</span>
             <h3>Claim Hacktoberfest Credits</h3>
@@ -778,8 +790,55 @@ extra_css: "/Assets/CSS/hack-days.css"
             </div>
         </div>
 
+        <!-- Community Partners — compact box -->
+        <div class="sponsor-spotlight sponsor-spotlight-partner" style="margin-top: var(--space-2xl);">
+            <div style="flex: 1 1 100%;">
+                <div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-lg);">
+                    <h3 style="margin: 0;">Community Partners</h3>
+                    <span class="hack-role-chip">Community</span>
+                </div>
+                <div class="community-partners-row">
+                    <span class="sponsor-spotlight-logo is-light community-partner-chip" aria-label="Enovanto">
+                        <img src="/Assets/images/Logos/enovanto.png" alt="Enovanto Management Pvt. Ltd." loading="lazy">
+                    </span>
+                    <span class="sponsor-spotlight-logo is-light community-partner-chip" aria-label="SlowBros Labs">
+                        <img src="/Assets/images/HackDays/slowbros-labs.png" alt="SlowBros Labs" loading="lazy">
+                    </span>
+                    <span class="sponsor-spotlight-logo is-light community-partner-chip" aria-label="The Hackers Meetup">
+                        <img src="/Assets/images/HackDays/the-hackers-meetup.png" alt="The Hackers Meetup" loading="lazy">
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Official Photography Partner — Sous Focus -->
+        <div class="sponsor-spotlight sponsor-spotlight-partner" style="margin-top: var(--space-2xl);">
+            <div style="flex: 0 0 auto;">
+                <a href="https://www.instagram.com/sous_focus/" target="_blank" rel="noopener"
+                    class="sponsor-spotlight-logo is-light" aria-label="Sous Focus">
+                    <img src="/Assets/images/HackDays/sous-focus.png" alt="Sous Focus" loading="lazy">
+                </a>
+            </div>
+            <div style="flex: 1 1 280px;">
+                <div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-sm);">
+                    <h3 style="margin: 0;">Sous Focus</h3>
+                    <span class="hack-role-chip">Official Photography Partner</span>
+                </div>
+                <p style="color: var(--color-gray-400); margin-bottom: var(--space-md);">Sous Focus is the Official
+                    Photography Partner for Hacktoberfest Hack Day Indore, capturing the energy and moments of the
+                    event.</p>
+                <a href="https://www.instagram.com/sous_focus/" target="_blank" rel="noopener noreferrer"
+                    class="link-arrow" style="display: inline-flex;">
+                    Follow on Instagram
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
         <p class="section-text" style="text-align: center; max-width: 640px; margin: var(--space-2xl) auto 0;">
-            More sponsors &amp; partners will be announced soon. Want to support Hacktoberfest Hack Day Indore?
+            Want to support Hacktoberfest Hack Day Indore?
             <a href="/contact/" style="color: var(--color-primary);">Get in touch</a>.
         </p>
     </div>
