@@ -2524,6 +2524,30 @@ section {
     object-fit: contain;
 }
 
+.devfest-promo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-md);
+    margin: var(--space-md) 0;
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--border-lime);
+    border-radius: var(--radius-md);
+    background: rgba(163, 230, 53, 0.06);
+    color: var(--color-gray-200);
+    font-size: 0.85rem;
+}
+
+.devfest-promo code {
+    color: var(--color-primary);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    overflow-wrap: anywhere;
+}
+
 .event-card-full::before {
     content: '';
     position: absolute;
