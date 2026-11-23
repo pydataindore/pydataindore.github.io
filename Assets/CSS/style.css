@@ -2507,6 +2507,23 @@ section {
     overflow: hidden;
 }
 
+.event-organizer-logo {
+    display: flex;
+    align-items: center;
+    width: min(100%, 220px);
+    margin-top: var(--space-md);
+    padding: 5px 10px;
+    background: #fff;
+    border-radius: var(--radius-md);
+}
+
+.event-organizer-logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
 .event-card-full::before {
     content: '';
     position: absolute;
