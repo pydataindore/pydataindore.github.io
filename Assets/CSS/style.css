@@ -2524,6 +2524,18 @@ section {
     object-fit: contain;
 }
 
+.devfest-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-lg);
+}
+
+.devfest-eyebrow .section-tag {
+    margin-bottom: 0;
+}
+
 .devfest-promo {
     display: flex;
     align-items: center;
