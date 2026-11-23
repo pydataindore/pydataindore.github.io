@@ -272,6 +272,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event filter functionality (for events page)
     const filterBtns = document.querySelectorAll('.filter-btn');
     const eventCards = document.querySelectorAll('.event-card-full');
+    const countedEventTypes = new Set(['hackathon', 'meetup', 'workshop']);
+
+    filterBtns.forEach(btn => {
+        const filter = btn.dataset.filter;
+        const count = [...eventCards].filter(card => {
+            const type = card.dataset.type;
+            return filter === 'all' ||
+                (filter === 'other' ? !countedEventTypes.has(type) : type === filter);
+        }).length;
+        const countLabel = btn.querySelector('[data-event-count]');
+        if (countLabel) countLabel.textContent = `(${count})`;
+    });
     
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -282,7 +294,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const filter = btn.dataset.filter;
             
             eventCards.forEach(card => {
-                if (filter === 'all' || card.dataset.type === filter) {
+                const matchesFilter = filter === 'all' ||
+                    (filter === 'other'
+                        ? !countedEventTypes.has(card.dataset.type)
+                        : card.dataset.type === filter);
+
+                if (matchesFilter) {
                     card.style.display = 'grid';
                     setTimeout(() => {
                         card.style.opacity = '1';
