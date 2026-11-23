@@ -519,6 +519,11 @@ body.has-announcement .nav {
 }
 
 .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    touch-action: manipulation;
     background: var(--color-primary) !important;
     color: var(--color-on-primary) !important;
     padding: var(--space-sm) var(--space-lg) !important;
@@ -546,6 +551,11 @@ body.has-announcement .nav {
     background: none;
     border: none;
     cursor: pointer;
+    touch-action: manipulation;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
     padding: var(--space-sm);
 }
 
@@ -639,6 +649,33 @@ body.has-announcement .nav {
     inset: 0;
     overflow: hidden;
     z-index: 1;
+}
+
+/* These layers are visual only; never let them intercept links or button taps. */
+.hero-bg,
+.hero-overlay,
+.hero-gradient,
+.hero-grid,
+.floating-shapes,
+.scroll-indicator,
+.about-preview::before,
+.visual-card::before,
+.topics-section::before,
+.topics-section::after,
+.schedule-timeline::before,
+.schedule-item::before,
+.cta-section::before,
+.cta-section::after,
+.page-header::before,
+.page-header::after,
+.content-card::after,
+.event-card-full::before,
+.past-events-section h2::before,
+.team-section::before,
+.event-status::before,
+.strip-stat:not(:last-child)::after,
+.proposal-section::before {
+    pointer-events: none;
 }
 
 .shape {
@@ -857,6 +894,7 @@ body.has-announcement .nav {
     display: inline-flex;
     align-items: center;
     gap: var(--space-sm);
+    min-height: 44px;
     padding: 0.7rem 1.5rem;
     border-radius: var(--radius-full);
     font-weight: 700;
@@ -2426,6 +2464,7 @@ section {
 }
 
 .filter-btn {
+    min-height: 44px;
     padding: var(--space-sm) var(--space-lg);
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -2433,6 +2472,7 @@ section {
     color: var(--color-gray-500);
     font-size: 0.8rem;
     cursor: pointer;
+    touch-action: manipulation;
     transition: all var(--transition-fast);
     font-family: var(--font-mono);
     letter-spacing: 0.05em;
@@ -2467,6 +2507,59 @@ section {
     overflow: hidden;
 }
 
+.event-organizer-logo {
+    display: flex;
+    align-items: center;
+    width: min(100%, 220px);
+    margin-top: var(--space-md);
+    padding: 5px 10px;
+    background: #fff;
+    border-radius: var(--radius-md);
+}
+
+.event-organizer-logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.devfest-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-lg);
+}
+
+.devfest-eyebrow .section-tag {
+    margin-bottom: 0;
+}
+
+.devfest-promo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-md);
+    margin: var(--space-md) 0;
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--border-lime);
+    border-radius: var(--radius-md);
+    background: rgba(163, 230, 53, 0.06);
+    color: var(--color-gray-200);
+    font-size: 0.85rem;
+}
+
+.devfest-promo code {
+    color: var(--color-primary);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    overflow-wrap: anywhere;
+}
+
 .event-card-full::before {
     content: '';
     position: absolute;
@@ -2491,6 +2584,16 @@ section {
 
 .past-events-section {
     opacity: 0.75;
+}
+
+.upcoming-events-section {
+    margin-bottom: var(--space-3xl);
+}
+
+.upcoming-events-section h2 {
+    margin-bottom: var(--space-xl);
+    color: var(--color-white);
+    font-size: 1.5rem;
 }
 
 .past-events-section h2 {
@@ -3326,9 +3429,12 @@ section {
     }
 
     .nav-links a {
-        display: block;
+        display: flex;
+        align-items: center;
+        min-height: 44px;
         padding: var(--space-sm) 0;
         font-size: 1rem;
+        touch-action: manipulation;
     }
 
     .nav-cta {
